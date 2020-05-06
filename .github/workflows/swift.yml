@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild -verbose -allowProvisioningUpdates
+      run: xcodebuild -verbose -allowProvisioningUpdates -configuration Debug
     - name: Run tests
       run: swift test -v
