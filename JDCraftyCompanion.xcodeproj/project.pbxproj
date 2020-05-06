@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		860BDFB9245B105D004059AC /* JDCraftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDCraftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		860BDFB9245B105D004059AC /* JD's Crafty Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JD's Crafty Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860BDFBC245B105D004059AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		860BDFBE245B105D004059AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		860BDFC0245B105D004059AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		860BDFBA245B105D004059AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				860BDFB9245B105D004059AC /* JDCraftyCompanion.app */,
+				860BDFB9245B105D004059AC /* JD's Crafty Companion.app */,
 				860BDFCF245B1062004059AC /* JDCraftyCompanionTests.xctest */,
 				860BDFDA245B1062004059AC /* JDCraftyCompanionUITests.xctest */,
 			);
@@ -153,7 +153,7 @@
 			);
 			name = JDCraftyCompanion;
 			productName = "JD's Crafty Companion";
-			productReference = 860BDFB9245B105D004059AC /* JDCraftyCompanion.app */;
+			productReference = 860BDFB9245B105D004059AC /* JD's Crafty Companion.app */;
 			productType = "com.apple.product-type.application";
 		};
 		860BDFCE245B1062004059AC /* JDCraftyCompanionTests */ = {
@@ -434,7 +434,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = justin.distaulo.JDCraftyCompanion;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "JD's Crafty Companion";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,8 +445,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"JDCraftyCompanion/Preview Content\"";
 				DEVELOPMENT_TEAM = DNUV9DH7V4;
 				ENABLE_PREVIEWS = YES;
@@ -456,8 +456,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = justin.distaulo.JDCraftyCompanion;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = "JD's Crafty Companion";
+				PROVISIONING_PROFILE_SPECIFIER = "JD's Crafty Companion - Ad Hoc Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
