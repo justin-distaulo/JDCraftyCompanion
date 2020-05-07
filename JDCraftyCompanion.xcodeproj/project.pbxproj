@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,13 @@
 		860BDFC6245B1062004059AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860BDFC5245B1062004059AC /* Preview Assets.xcassets */; };
 		860BDFD4245B1062004059AC /* JDCraftyCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFD3245B1062004059AC /* JDCraftyCompanionTests.swift */; };
 		860BDFDF245B1062004059AC /* JDsCraftyCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */; };
+		865C4B542464CD4D00D2A997 /* DeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C4B532464CD4D00D2A997 /* DeviceViewModel.swift */; };
+		865C4B562464CD8B00D2A997 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C4B552464CD8B00D2A997 /* Services.swift */; };
+		86966BF62464BBE4003DAEDD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 86966BF52464BBE4003DAEDD /* Lottie */; };
+		86966C012464CB0B003DAEDD /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFD2464CB0B003DAEDD /* bluetooth.json */; };
+		86966C022464CB0B003DAEDD /* hamster_basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFE2464CB0B003DAEDD /* hamster_basic.json */; };
+		86966C032464CB0B003DAEDD /* hamster.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFF2464CB0B003DAEDD /* hamster.json */; };
+		86966C042464CB0B003DAEDD /* hypnotoad.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966C002464CB0B003DAEDD /* hypnotoad.json */; };
 		86DE0C78245B66FA0049B47B /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE0C77245B66FA0049B47B /* DeviceManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +55,12 @@
 		860BDFDA245B1062004059AC /* JDCraftyCompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDCraftyCompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDsCraftyCompanionUITests.swift; sourceTree = "<group>"; };
 		860BDFE0245B1062004059AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865C4B532464CD4D00D2A997 /* DeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewModel.swift; sourceTree = "<group>"; };
+		865C4B552464CD8B00D2A997 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		86966BFD2464CB0B003DAEDD /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
+		86966BFE2464CB0B003DAEDD /* hamster_basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster_basic.json; sourceTree = "<group>"; };
+		86966BFF2464CB0B003DAEDD /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
+		86966C002464CB0B003DAEDD /* hypnotoad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hypnotoad.json; sourceTree = "<group>"; };
 		86DE0C77245B66FA0049B47B /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86966BF62464BBE4003DAEDD /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +117,9 @@
 				860BDFBE245B105D004059AC /* SceneDelegate.swift */,
 				860BDFC0245B105D004059AC /* ContentView.swift */,
 				86DE0C77245B66FA0049B47B /* DeviceManager.swift */,
+				865C4B532464CD4D00D2A997 /* DeviceViewModel.swift */,
+				865C4B552464CD8B00D2A997 /* Services.swift */,
+				86966BFA2464C196003DAEDD /* animations */,
 				860BDFC2245B1062004059AC /* Assets.xcassets */,
 				860BDFCA245B1062004059AC /* Info.plist */,
 				860BDFC4245B1062004059AC /* Preview Content */,
@@ -136,6 +153,17 @@
 			path = JDCraftyCompanionUITests;
 			sourceTree = "<group>";
 		};
+		86966BFA2464C196003DAEDD /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				86966BFD2464CB0B003DAEDD /* bluetooth.json */,
+				86966BFE2464CB0B003DAEDD /* hamster_basic.json */,
+				86966BFF2464CB0B003DAEDD /* hamster.json */,
+				86966C002464CB0B003DAEDD /* hypnotoad.json */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +180,9 @@
 			dependencies = (
 			);
 			name = JDCraftyCompanion;
+			packageProductDependencies = (
+				86966BF52464BBE4003DAEDD /* Lottie */,
+			);
 			productName = "JD's Crafty Companion";
 			productReference = 860BDFB9245B105D004059AC /* JD's Crafty Companion.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +255,9 @@
 				Base,
 			);
 			mainGroup = 860BDFB0245B105D004059AC;
+			packageReferences = (
+				86966BF42464BBE4003DAEDD /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 860BDFBA245B105D004059AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -240,8 +274,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86966C012464CB0B003DAEDD /* bluetooth.json in Resources */,
+				86966C022464CB0B003DAEDD /* hamster_basic.json in Resources */,
 				860BDFC6245B1062004059AC /* Preview Assets.xcassets in Resources */,
+				86966C032464CB0B003DAEDD /* hamster.json in Resources */,
 				860BDFC3245B1062004059AC /* Assets.xcassets in Resources */,
+				86966C042464CB0B003DAEDD /* hypnotoad.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +305,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				860BDFBD245B105D004059AC /* AppDelegate.swift in Sources */,
+				865C4B562464CD8B00D2A997 /* Services.swift in Sources */,
 				860BDFBF245B105D004059AC /* SceneDelegate.swift in Sources */,
 				860BDFC1245B105D004059AC /* ContentView.swift in Sources */,
+				865C4B542464CD4D00D2A997 /* DeviceViewModel.swift in Sources */,
 				86DE0C78245B66FA0049B47B /* DeviceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +627,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86966BF42464BBE4003DAEDD /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86966BF52464BBE4003DAEDD /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86966BF42464BBE4003DAEDD /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 860BDFB1245B105D004059AC /* Project object */;
 }
