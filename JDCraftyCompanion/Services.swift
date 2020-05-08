@@ -16,6 +16,7 @@ protocol CoreBluetoothIdentifiable: RawRepresentable where RawValue == String {
 extension CoreBluetoothIdentifiable {
     
     var uuid: CBUUID {
+        
         return CBUUID(string: self.rawValue)
     }
 }

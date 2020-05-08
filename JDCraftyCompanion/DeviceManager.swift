@@ -77,8 +77,12 @@ extension DeviceManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
 
-        self.deviceViewModel?.loadingStep = .loading
         peripheral.discoverServices(nil)
+        
+        // This is SO hacky
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (_) in
+            self.deviceViewModel?.loadingStep = .loading
+        }
     }
 }
 
@@ -96,7 +100,8 @@ extension DeviceManager: CBPeripheralDelegate {
             peripheral.discoverCharacteristics(nil, for: service)
         }
         
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
+        // This is SO hacky
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { (_) in
             self.dispatchGroup?.leave()
         }
     }
@@ -119,16 +124,33 @@ extension DeviceManager: CBPeripheralDelegate {
         }
 
         for characteristic in characteristics {
-            self.dispatchGroup?.enter()
             peripheral.readValue(for: characteristic)
+            peripheral.setNotifyValue(true, for: characteristic)
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
         guard let data = characteristic.value else {
-            self.dispatchGroup?.leave()
             return
+        }
+        
+        switch Services.temperatureAndBatteryControl(rawValue: characteristic.uuid.uuidString) {
+        case .currentTemperature:
+            let bytes = [UInt8](data)
+            var f: Float = 0
+            memcpy(&f, bytes, 2) //todo
+            self.deviceViewModel?.currentTemperature = Double(f)
+        case .targetTemperature:
+            var number: UInt8 = 0
+            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
+            self.deviceViewModel?.targetTemperature = Double(number)
+        case .boosterTemperature:
+            var number: UInt8 = 0
+            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
+            self.deviceViewModel?.boosterTemperature = Double(number)
+        default:
+            break
         }
         
         switch Services.deviceInfo(rawValue: characteristic.uuid.uuidString) {
@@ -146,11 +168,17 @@ extension DeviceManager: CBPeripheralDelegate {
         case .powerOnTime:
         var number: UInt8 = 0
             data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
-            self.deviceViewModel?.powerOnTime = String(format: "%d hours", number)
+            self.deviceViewModel?.powerOnTime = Int(number)
+        case .fullChargeCapacity:
+            var number: UInt8 = 0
+            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
+            self.deviceViewModel?.fullChargeCapacity = Int(number)
+        case .remainChargeCapacity:
+            var number: UInt8 = 0
+            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
+            self.deviceViewModel?.remainChargeCapacity = Int(number)
         default:
             break
         }
-        
-        self.dispatchGroup?.leave()
     }
 }

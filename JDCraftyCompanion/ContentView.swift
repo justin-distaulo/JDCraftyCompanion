@@ -17,13 +17,42 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                Text("Temperature Screen")
-                    .font(.title)
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "thermometer")
-                            Text("Temperature")
-                        }
+                VStack(spacing: 12) {
+                    HStack {
+                        Text("Temperature Control")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        Spacer()
+                    }
+                    .padding(.top, 24)
+                    Spacer().frame(maxHeight: 60)
+                    HStack {
+                        Text("Current temperature:")
+                            .font(.body)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("\(String(self.device.currentTemperature))ºC")
+                    }
+                    HStack {
+                        Text("Target temperature:")
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("\(String(self.device.targetTemperature))ºC")
+                    }
+                    HStack {
+                        Text("Booster temperature:")
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("\(String(self.device.targetTemperature + self.device.boosterTemperature))ºC")
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal, 24)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "thermometer")
+                        Text("Temperature")
+                    }
                 }
                 .tag(0)
                 Text("Settings Screen")
@@ -37,7 +66,9 @@ struct ContentView: View {
                 .tag(1)
                 VStack(spacing: 12) {
                     HStack {
-                        Text("Device Info").font(.largeTitle).fontWeight(.bold)
+                        Text("Device Info")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
                         Spacer()
                     }
                     .padding(.top, 24)
@@ -65,7 +96,13 @@ struct ContentView: View {
                         Text("Power on time:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text(self.device.powerOnTime)
+                        Text("\(String(self.device.powerOnTime)) hours")
+                    }
+                    HStack {
+                        Text("Battery:")
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("\(String(self.device.battery))%")
                     }
                     Spacer()
                 }
@@ -134,5 +171,11 @@ struct LottieView: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) {
         
         self.animationView.play()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
