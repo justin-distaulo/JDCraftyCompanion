@@ -37,7 +37,7 @@ class DeviceViewModel: ObservableObject {
     @Published var loadingText = ""
     
     // Temperature
-    @Published var currentTemperature = 0.0
+    @Published private(set) var currentTemperature = 0.0
     @Published var targetTemperature = 0.0
     @Published var boosterTemperature = 0.0
     
@@ -46,7 +46,23 @@ class DeviceViewModel: ObservableObject {
     @Published var firmware = ""
     @Published var serialNumber = ""
     @Published var powerOnTime = 0
-    @Published var battery = 0
+    @Published private(set) var battery = 0
+    
+    private var rawTempCount = 0
+    private var rawTempThreshold = 10.0
+    var rawTemperature = 0.0 {
+        
+        willSet {
+            let difference = newValue - rawTemperature
+            if difference.magnitude <= rawTempThreshold {
+                rawTempCount += 1
+            }
+            if rawTempCount > 3 {
+                rawTempCount = 0
+                self.currentTemperature = newValue
+            }
+        }
+    }
     
     var fullChargeCapacity = 0 {
         
@@ -54,6 +70,7 @@ class DeviceViewModel: ObservableObject {
             self.battery = Int(round(Double(self.remainChargeCapacity) / Double(self.fullChargeCapacity) * 100))
         }
     }
+    
     var remainChargeCapacity = 0 {
         
         didSet {

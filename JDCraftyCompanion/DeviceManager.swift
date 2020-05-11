@@ -137,10 +137,12 @@ extension DeviceManager: CBPeripheralDelegate {
         
         switch Services.temperatureAndBatteryControl(rawValue: characteristic.uuid.uuidString) {
         case .currentTemperature:
-            let bytes = [UInt8](data)
-            var f: Float = 0
-            memcpy(&f, bytes, 2) //todo
-            self.deviceViewModel?.currentTemperature = Double(f)
+            var double: Double = 0.0
+            for (i, val) in data.enumerated() {
+                let doubleVal = Double(val)
+                double += i == 0 ? doubleVal : doubleVal / 100
+            }
+            self.deviceViewModel?.rawTemperature = double
         case .targetTemperature:
             var number: UInt8 = 0
             data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
@@ -177,6 +179,11 @@ extension DeviceManager: CBPeripheralDelegate {
             var number: UInt8 = 0
             data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
             self.deviceViewModel?.remainChargeCapacity = Int(number)
+        case ._currentAccu:
+            var number: UInt8 = 0
+            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
+            print("voltage: \(number)")
+            break
         default:
             break
         }
