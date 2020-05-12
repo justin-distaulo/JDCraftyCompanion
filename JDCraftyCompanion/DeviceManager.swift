@@ -137,20 +137,12 @@ extension DeviceManager: CBPeripheralDelegate {
         
         switch Services.temperatureAndBatteryControl(rawValue: characteristic.uuid.uuidString) {
         case .currentTemperature:
-            var double: Double = 0.0
-            for (i, val) in data.enumerated() {
-                let doubleVal = Double(val)
-                double += i == 0 ? doubleVal : doubleVal / 100
-            }
-            self.deviceViewModel?.rawTemperature = double
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.deviceViewModel?.currentTemperature = Double(intVal) / 10
         case .targetTemperature:
-            var number: UInt8 = 0
-            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
-            self.deviceViewModel?.targetTemperature = Double(number)
+            self.deviceViewModel?.targetTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
         case .boosterTemperature:
-            var number: UInt8 = 0
-            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
-            self.deviceViewModel?.boosterTemperature = Double(number)
+            self.deviceViewModel?.boosterTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
         default:
             break
         }
@@ -168,21 +160,20 @@ extension DeviceManager: CBPeripheralDelegate {
         
         switch Services.diagnostics(rawValue: characteristic.uuid.uuidString) {
         case .powerOnTime:
-        var number: UInt8 = 0
-            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
-            self.deviceViewModel?.powerOnTime = Int(number)
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.deviceViewModel?.powerOnTime = Int(intVal)
         case .fullChargeCapacity:
-            var number: UInt8 = 0
-            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
-            self.deviceViewModel?.fullChargeCapacity = Int(number)
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.deviceViewModel?.fullChargeCapacity = Int(intVal)
         case .remainChargeCapacity:
-            var number: UInt8 = 0
-            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
-            self.deviceViewModel?.remainChargeCapacity = Int(number)
-        case ._currentAccu:
-            var number: UInt8 = 0
-            data.copyBytes(to:&number, count: MemoryLayout<UInt8>.size)
-            print("voltage: \(number)")
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.deviceViewModel?.remainChargeCapacity = Int(intVal)
+        case .power:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            // returns either 0, 32, 32900, 32800 or 32768
+            // 32 only occurs on battery
+            // 32900, 32800, 32768 only occur while plugged in
+            print("power: \(intVal)")
             break
         default:
             break

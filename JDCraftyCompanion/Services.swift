@@ -47,6 +47,7 @@ struct Services {
         
     enum diagnostics: String, CoreBluetoothIdentifiable {
         
+        case power                        = "00000063-4C45-4B43-4942-265A524F5453"
         case powerOnTime                  = "00000023-4C45-4B43-4942-265A524F5453"
         case fullChargeCapacity           = "00000143-4C45-4B43-4942-265A524F5453"
         case remainChargeCapacity         = "00000153-4C45-4B43-4942-265A524F5453"
@@ -58,7 +59,6 @@ struct Services {
         case _hardware                    = "00000033-4C45-4B43-4942-265A524F5453"
         case _pcbVersion                  = "00000043-4C45-4B43-4942-265A524F5453"
         case _serialNumberHardware        = "00000053-4C45-4B43-4942-265A524F5453"
-        case _accuStatusRegister          = "00000063-4C45-4B43-4942-265A524F5453"
         case _accuStatusRegister2         = "00000073-4C45-4B43-4942-265A524F5453"
         case _systemStatusRegister        = "00000083-4C45-4B43-4942-265A524F5453"
         case _projectStatus               = "00000093-4C45-4B43-4942-265A524F5453"
