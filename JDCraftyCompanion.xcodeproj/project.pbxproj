@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8609662D246C86B2003F89B5 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609662C246C86B2003F89B5 /* LottieView.swift */; };
 		860BDFBD245B105D004059AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFBC245B105D004059AC /* AppDelegate.swift */; };
 		860BDFBF245B105D004059AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFBE245B105D004059AC /* SceneDelegate.swift */; };
-		860BDFC1245B105D004059AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFC0245B105D004059AC /* ContentView.swift */; };
+		860BDFC1245B105D004059AC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFC0245B105D004059AC /* MainView.swift */; };
 		860BDFC3245B1062004059AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860BDFC2245B1062004059AC /* Assets.xcassets */; };
 		860BDFC6245B1062004059AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860BDFC5245B1062004059AC /* Preview Assets.xcassets */; };
 		860BDFD4245B1062004059AC /* JDCraftyCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFD3245B1062004059AC /* JDCraftyCompanionTests.swift */; };
 		860BDFDF245B1062004059AC /* JDsCraftyCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */; };
 		865C4B542464CD4D00D2A997 /* DeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C4B532464CD4D00D2A997 /* DeviceViewModel.swift */; };
-		865C4B562464CD8B00D2A997 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C4B552464CD8B00D2A997 /* Services.swift */; };
+		865C4B562464CD8B00D2A997 /* DeviceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C4B552464CD8B00D2A997 /* DeviceServices.swift */; };
 		86966BF62464BBE4003DAEDD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 86966BF52464BBE4003DAEDD /* Lottie */; };
 		86966C012464CB0B003DAEDD /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFD2464CB0B003DAEDD /* bluetooth.json */; };
 		86966C022464CB0B003DAEDD /* hamster_basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFE2464CB0B003DAEDD /* hamster_basic.json */; };
@@ -42,10 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8609662C246C86B2003F89B5 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		860BDFB9245B105D004059AC /* JD's Crafty Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JD's Crafty Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860BDFBC245B105D004059AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		860BDFBE245B105D004059AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		860BDFC0245B105D004059AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		860BDFC0245B105D004059AC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		860BDFC2245B1062004059AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		860BDFC5245B1062004059AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		860BDFCA245B1062004059AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDsCraftyCompanionUITests.swift; sourceTree = "<group>"; };
 		860BDFE0245B1062004059AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865C4B532464CD4D00D2A997 /* DeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceViewModel.swift; sourceTree = "<group>"; };
-		865C4B552464CD8B00D2A997 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		865C4B552464CD8B00D2A997 /* DeviceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceServices.swift; sourceTree = "<group>"; };
 		86966BFD2464CB0B003DAEDD /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
 		86966BFE2464CB0B003DAEDD /* hamster_basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster_basic.json; sourceTree = "<group>"; };
 		86966BFF2464CB0B003DAEDD /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
@@ -90,6 +92,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8609662E246C86F7003F89B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				860BDFC0245B105D004059AC /* MainView.swift */,
+				8609662C246C86B2003F89B5 /* LottieView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8609662F246C870E003F89B5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				865C4B532464CD4D00D2A997 /* DeviceViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		86096630246C8726003F89B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				865C4B552464CD8B00D2A997 /* DeviceServices.swift */,
+				86DE0C77245B66FA0049B47B /* DeviceManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86096631246C8730003F89B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				86966BFA2464C196003DAEDD /* Animations */,
+				860BDFC2245B1062004059AC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		860BDFB0245B105D004059AC = {
 			isa = PBXGroup;
 			children = (
@@ -113,14 +150,12 @@
 		860BDFBB245B105D004059AC /* JDCraftyCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				8609662E246C86F7003F89B5 /* Views */,
+				8609662F246C870E003F89B5 /* ViewModels */,
+				86096630246C8726003F89B5 /* Models */,
+				86096631246C8730003F89B5 /* Resources */,
 				860BDFBC245B105D004059AC /* AppDelegate.swift */,
 				860BDFBE245B105D004059AC /* SceneDelegate.swift */,
-				860BDFC0245B105D004059AC /* ContentView.swift */,
-				865C4B532464CD4D00D2A997 /* DeviceViewModel.swift */,
-				86DE0C77245B66FA0049B47B /* DeviceManager.swift */,
-				865C4B552464CD8B00D2A997 /* Services.swift */,
-				86966BFA2464C196003DAEDD /* animations */,
-				860BDFC2245B1062004059AC /* Assets.xcassets */,
 				860BDFCA245B1062004059AC /* Info.plist */,
 				860BDFC4245B1062004059AC /* Preview Content */,
 			);
@@ -153,7 +188,7 @@
 			path = JDCraftyCompanionUITests;
 			sourceTree = "<group>";
 		};
-		86966BFA2464C196003DAEDD /* animations */ = {
+		86966BFA2464C196003DAEDD /* Animations */ = {
 			isa = PBXGroup;
 			children = (
 				86966BFD2464CB0B003DAEDD /* bluetooth.json */,
@@ -161,7 +196,7 @@
 				86966BFF2464CB0B003DAEDD /* hamster.json */,
 				86966C002464CB0B003DAEDD /* hypnotoad.json */,
 			);
-			path = animations;
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,9 +340,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				860BDFBD245B105D004059AC /* AppDelegate.swift in Sources */,
-				865C4B562464CD8B00D2A997 /* Services.swift in Sources */,
+				865C4B562464CD8B00D2A997 /* DeviceServices.swift in Sources */,
 				860BDFBF245B105D004059AC /* SceneDelegate.swift in Sources */,
-				860BDFC1245B105D004059AC /* ContentView.swift in Sources */,
+				860BDFC1245B105D004059AC /* MainView.swift in Sources */,
+				8609662D246C86B2003F89B5 /* LottieView.swift in Sources */,
 				865C4B542464CD4D00D2A997 /* DeviceViewModel.swift in Sources */,
 				86DE0C78245B66FA0049B47B /* DeviceManager.swift in Sources */,
 			);

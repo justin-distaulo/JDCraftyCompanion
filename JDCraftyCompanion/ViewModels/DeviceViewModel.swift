@@ -9,6 +9,7 @@
 
 import Combine
 import SwiftUI
+import CoreBluetooth
 
 class DeviceViewModel: ObservableObject {
     
@@ -34,6 +35,7 @@ class DeviceViewModel: ObservableObject {
     
     // Loading
     @Published var isLoading = false
+    @Published var devices: [CBPeripheral] = []
     @Published var loadingText = ""
     
     // Temperature
@@ -67,11 +69,5 @@ class DeviceViewModel: ObservableObject {
         didSet {
             self.loadingText = self.loadingStep.text
         }
-    }
-    
-    init() {
-
-        DeviceManager.shared.shouldScan = true
-        DeviceManager.shared.deviceViewModel = self
     }
 }

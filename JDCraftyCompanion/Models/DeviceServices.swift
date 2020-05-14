@@ -1,5 +1,5 @@
 //
-//  Services.swift
+//  DeviceServices.swift
 //  JDCraftyCompanion
 //
 //  Created by Justin DiStaulo on 2020-05-07.
@@ -21,9 +21,9 @@ extension CoreBluetoothIdentifiable {
     }
 }
 
-struct Services {
+struct DeviceServices {
     
-    enum deviceInfo: String, CoreBluetoothIdentifiable {
+    enum info: String, CoreBluetoothIdentifiable {
         
         case model        = "00000022-4C45-4B43-4942-265A524F5453"
         case firmware     = "00000032-4C45-4B43-4942-265A524F5453"

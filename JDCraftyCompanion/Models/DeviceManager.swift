@@ -7,19 +7,18 @@
 //
 
 import CoreBluetooth
+import Foundation
 
 class DeviceManager: NSObject {
     
-    static let shared = DeviceManager()
-    var deviceViewModel: DeviceViewModel?
-    var shouldScan = false
+    var viewModel: DeviceViewModel
     
     private let manager = CBCentralManager()
     private var device: CBPeripheral?
-    private var dispatchGroup: DispatchGroup?
     
-    required override init() {
-        
+    required init(with viewModel: DeviceViewModel) {
+
+        self.viewModel = viewModel
         super.init()
         self.manager.delegate = self
     }
@@ -41,20 +40,12 @@ extension DeviceManager: CBCentralManagerDelegate {
         case .poweredOff:
             print("central.state is .poweredOff")
         case .poweredOn:
-            if self.shouldScan {
-                self.deviceViewModel?.isLoading = true
-                self.deviceViewModel?.loadingStep = .scanning
-                
-                self.dispatchGroup = DispatchGroup()
-                
-                dispatchGroup?.enter()
+            if self.device == nil {
+                self.viewModel.isLoading = true
+                self.viewModel.loadingStep = .scanning
+                self.viewModel.devices.removeAll()
                 self.manager.scanForPeripherals(withServices: [CBUUID(string: "0x0001")],
                                                 options: nil)
-                
-                dispatchGroup?.notify(queue: .main, execute: {
-                    self.deviceViewModel?.isLoading = false
-                    self.deviceViewModel?.loadingStep = .none
-                })
             }
         @unknown default:
             print("central.state weird...")
@@ -63,26 +54,23 @@ extension DeviceManager: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
-        if peripheral.name?.uppercased() == "STORZ&BICKEL" {
-
-            self.deviceViewModel?.loadingStep = .connecting
-            self.shouldScan = false
-            self.device = peripheral
-            self.device?.delegate = self
-            self.manager.connect(peripheral, options: nil)
-        } else {
-            self.dispatchGroup?.leave()
+        if !self.viewModel.devices.contains(peripheral) {
+            self.viewModel.devices.append(peripheral)
         }
+        
+//        if peripheral.name?.uppercased() == "STORZ&BICKEL" {
+//
+//            self.deviceViewModel?.loadingStep = .connecting
+//            self.shouldScan = false
+//            self.device = peripheral
+//            self.device?.delegate = self
+//            self.manager.connect(peripheral, options: nil)
+//        }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
 
         peripheral.discoverServices(nil)
-        
-        // This is SO hacky
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (_) in
-            self.deviceViewModel?.loadingStep = .loading
-        }
     }
 }
 
@@ -91,18 +79,12 @@ extension DeviceManager: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         
         guard let services = peripheral.services else {
-            self.dispatchGroup?.leave()
             return
         }
         
         for service in services {
             peripheral.discoverIncludedServices(nil, for: service)
             peripheral.discoverCharacteristics(nil, for: service)
-        }
-        
-        // This is SO hacky
-        Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { (_) in
-            self.dispatchGroup?.leave()
         }
     }
     
@@ -135,45 +117,44 @@ extension DeviceManager: CBPeripheralDelegate {
             return
         }
         
-        switch Services.temperatureAndBatteryControl(rawValue: characteristic.uuid.uuidString) {
+        switch DeviceServices.temperatureAndBatteryControl(rawValue: characteristic.uuid.uuidString) {
         case .currentTemperature:
             let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-            self.deviceViewModel?.currentTemperature = Double(intVal) / 10
+            self.viewModel.currentTemperature = Double(intVal) / 10
         case .targetTemperature:
-            self.deviceViewModel?.targetTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
+            self.viewModel.targetTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
         case .boosterTemperature:
-            self.deviceViewModel?.boosterTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
+            self.viewModel.boosterTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
         default:
             break
         }
         
-        switch Services.deviceInfo(rawValue: characteristic.uuid.uuidString) {
+        switch DeviceServices.info(rawValue: characteristic.uuid.uuidString) {
         case .model:
-            self.deviceViewModel?.model = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            self.viewModel.model = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         case .firmware:
-            self.deviceViewModel?.firmware = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            self.viewModel.firmware = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         case .serialNumber:
-            self.deviceViewModel?.serialNumber = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            self.viewModel.serialNumber = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         default:
             break
         }
         
-        switch Services.diagnostics(rawValue: characteristic.uuid.uuidString) {
+        switch DeviceServices.diagnostics(rawValue: characteristic.uuid.uuidString) {
         case .powerOnTime:
             let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-            self.deviceViewModel?.powerOnTime = Int(intVal)
+            self.viewModel.powerOnTime = Int(intVal)
         case .fullChargeCapacity:
             let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-            self.deviceViewModel?.fullChargeCapacity = Int(intVal)
+            self.viewModel.fullChargeCapacity = Int(intVal)
         case .remainChargeCapacity:
             let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-            self.deviceViewModel?.remainChargeCapacity = Int(intVal)
+            self.viewModel.remainChargeCapacity = Int(intVal)
         case .power:
-            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+//            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
             // returns either 0, 32, 32900, 32800 or 32768
             // 32 only occurs on battery
             // 32900, 32800, 32768 only occur while plugged in
-            print("power: \(intVal)")
             break
         default:
             break

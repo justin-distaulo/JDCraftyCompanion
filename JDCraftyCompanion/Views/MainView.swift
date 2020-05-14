@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  JD's Crafty Companion
 //
 //  Created by Justin DiStaulo on 2020-04-30.
@@ -8,11 +8,12 @@
 
 import SwiftUI
 import Lottie
+import CoreBluetooth //todo: this should be abstracted away
 
-struct ContentView: View {
+struct MainView: View {
     
     @State private var selection = 0
-    @ObservedObject private var device = DeviceViewModel()
+    @ObservedObject var viewModel: DeviceViewModel
     
     var body: some View {
         ZStack {
@@ -31,19 +32,19 @@ struct ContentView: View {
                             .font(.body)
                             .fontWeight(.bold)
                         Spacer()
-                        Text("\(String(self.device.currentTemperature))ºC")
+                        Text("\(String(viewModel.currentTemperature))ºC")
                     }
                     HStack {
                         Text("Target temperature:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text("\(String(self.device.targetTemperature))ºC")
+                        Text("\(String(viewModel.targetTemperature))ºC")
                     }
                     HStack {
                         Text("Booster temperature:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text("\(String(self.device.targetTemperature + self.device.boosterTemperature))ºC")
+                        Text("\(String(viewModel.targetTemperature + self.viewModel.boosterTemperature))ºC")
                     }
                     Spacer()
                 }
@@ -78,31 +79,31 @@ struct ContentView: View {
                             .font(.body)
                             .fontWeight(.bold)
                         Spacer()
-                        Text(self.device.serialNumber)
+                        Text(viewModel.serialNumber)
                     }
                     HStack {
                         Text("Model:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text(self.device.model)
+                        Text(viewModel.model)
                     }
                     HStack {
                         Text("Firmware version:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text(self.device.firmware)
+                        Text(viewModel.firmware)
                     }
                     HStack {
                         Text("Power on time:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text("\(String(self.device.powerOnTime)) hours")
+                        Text("\(String(viewModel.powerOnTime)) hours")
                     }
                     HStack {
                         Text("Battery:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text("\(String(self.device.battery))%")
+                        Text("\(String(viewModel.battery))%")
                     }
                     Spacer()
                 }
@@ -115,67 +116,30 @@ struct ContentView: View {
                 }
                 .tag(2)
             }
-            .opacity(self.device.isLoading ? 0 : 1)
-            VStack {
-                LottieView(name: "hamster")
-                    .frame(width: 100, height: 100)
-                Spacer()
-                    .frame(maxHeight: 16)
-                Text(self.device.loadingText)
+            .sheet(isPresented: $viewModel.isLoading) { () -> DeviceListView in
+                return DeviceListView(viewModel: self.viewModel)
             }
-            .opacity(self.device.isLoading ? 1 : 0)
         }
     }
 }
 
-struct LottieView: UIViewRepresentable {
+struct DeviceListView: View {
     
-    class Coordinator: NSObject {
-        
-        var parent: LottieView
+    @Environment(\.presentationMode) var presentation
     
-        init(_ animationView: LottieView) {
-            
-            self.parent = animationView
-            super.init()
+    var viewModel: DeviceViewModel
+
+    var body: some View {
+        VStack {
+            LottieView(name: "hamster").frame(width: 100, height: 100)
+            Spacer().frame(maxHeight: 16)
+            Text(viewModel.loadingText)
+            Text("Found Devices:")
+            ForEach(self.viewModel.devices, id: \.identifier) { device in
+                Text(device.name ?? "???").onTapGesture {
+                    
+                }
+            }
         }
-    }
-    
-    var name: String!
-    var animationView = AnimationView()
-
-    func makeCoordinator() -> Coordinator {
-        
-        Coordinator(self)
-    }
-
-    func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
-        
-        let view = UIView()
-
-        self.animationView.animation = Animation.named(self.name)
-        self.animationView.loopMode = .loop
-        self.animationView.contentMode = .scaleAspectFit
-        self.animationView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(self.animationView)
-
-        NSLayoutConstraint.activate([
-            self.animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            self.animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
-        ])
-
-        return view
-    }
-
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) {
-        
-        self.animationView.play()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
