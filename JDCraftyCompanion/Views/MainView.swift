@@ -8,12 +8,11 @@
 
 import SwiftUI
 import Lottie
-import CoreBluetooth //todo: this should be abstracted away
 
 struct MainView: View {
     
     @State private var selection = 0
-    @ObservedObject var viewModel: DeviceViewModel
+    @ObservedObject var viewModel = MainViewModel()
     
     var body: some View {
         ZStack {
@@ -115,31 +114,10 @@ struct MainView: View {
                     }
                 }
                 .tag(2)
-            }
+                }
             .sheet(isPresented: $viewModel.isLoading) { () -> DeviceListView in
                 return DeviceListView(viewModel: self.viewModel)
-            }
-        }
-    }
-}
-
-struct DeviceListView: View {
-    
-    @Environment(\.presentationMode) var presentation
-    
-    var viewModel: DeviceViewModel
-
-    var body: some View {
-        VStack {
-            LottieView(name: "hamster").frame(width: 100, height: 100)
-            Spacer().frame(maxHeight: 16)
-            Text(viewModel.loadingText)
-            Text("Found Devices:")
-            ForEach(self.viewModel.devices, id: \.identifier) { device in
-                Text(device.name ?? "???").onTapGesture {
-                    
-                }
-            }
+            } // TODO: try geometry reader?
         }
     }
 }

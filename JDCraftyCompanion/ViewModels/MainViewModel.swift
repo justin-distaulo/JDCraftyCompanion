@@ -1,17 +1,16 @@
 //
-//  DeviceViewModel.swift
+//  MainViewModel.swift
 //  JDCraftyCompanion
 //
 //  Created by Justin DiStaulo on 2020-05-07.
 //  Copyright © 2020 Justin DiStaulo. All rights reserved.
 //
 
-
 import Combine
 import SwiftUI
 import CoreBluetooth
 
-class DeviceViewModel: ObservableObject {
+class MainViewModel: ObservableObject {
     
     enum LoadingStep {
         
@@ -34,8 +33,13 @@ class DeviceViewModel: ObservableObject {
     }
     
     // Loading
-    @Published var isLoading = false
-    @Published var devices: [CBPeripheral] = []
+    @Published var isLoading = true
+    @Published var devices: [Device] = [] {
+        
+        didSet {
+            
+        }
+    }
     @Published var loadingText = ""
     
     // Temperature
@@ -69,5 +73,22 @@ class DeviceViewModel: ObservableObject {
         didSet {
             self.loadingText = self.loadingStep.text
         }
+    }
+    
+    @ObservedObject var bluetoothModel: BluetoothConnection
+    private let bluetoothService: BluetoothService
+    
+    init() {
+        
+        // TODO: figure out how to bind self to this model
+        let bluetoothConnection = BluetoothConnection()
+        
+        self.bluetoothModel = bluetoothConnection
+        self.bluetoothService = BluetoothService(withBluetoothModel: bluetoothConnection)
+    }
+    
+    func connect(toDevice device: Device) {
+        
+        self.bluetoothService.connect(toDevice: device)
     }
 }
