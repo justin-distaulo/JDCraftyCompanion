@@ -43,7 +43,7 @@ struct MainView: View {
                         Text("Booster temperature:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text("\(String(viewModel.targetTemperature + self.viewModel.boosterTemperature))ºC")
+                        Text("\(String(viewModel.boosterTargetTemperature))ºC")
                     }
                     Spacer()
                 }
@@ -115,9 +115,15 @@ struct MainView: View {
                 }
                 .tag(2)
                 }
-            .sheet(isPresented: $viewModel.isLoading) { () -> DeviceListView in
+            .sheet(isPresented: $viewModel.isLoading, onDismiss: {
+                // SwiftUI does not currently provide a means to prevent the user from dismissing a sheet.
+                // This forces the sheet to reappear if it gets dismissed but there is still no connected device.
+                if self.viewModel.state != .connected {
+                    self.viewModel.isLoading = true
+                }
+            }) {
                 return DeviceListView(viewModel: self.viewModel)
-            } // TODO: try geometry reader?
+            }
         }
     }
 }

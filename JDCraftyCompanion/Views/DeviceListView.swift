@@ -20,9 +20,11 @@ struct DeviceListView: View {
             Spacer().frame(maxHeight: 16)
             Text(viewModel.loadingText)
             Text("Found Devices:")
-            ForEach(self.viewModel.devices, id: \.identifier) { device in
+            ForEach(viewModel.devices, id: \.identifier) { device in
                 Text(device.name).onTapGesture {
-                    self.viewModel.connect(toDevice: device)
+                    if self.viewModel.state == .scanning {
+                        self.viewModel.connect(toDevice: device)
+                    }
                 }
             }
         }

@@ -16,8 +16,7 @@ struct LottieView: UIViewRepresentable {
         var parent: LottieView
     
         init(_ animationView: LottieView) {
-            
-            self.parent = animationView
+            parent = animationView
             super.init()
         }
     }
@@ -26,31 +25,28 @@ struct LottieView: UIViewRepresentable {
     var animationView = AnimationView()
 
     func makeCoordinator() -> Coordinator {
-        
         Coordinator(self)
     }
 
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
-        
         let view = UIView()
 
-        self.animationView.animation = Animation.named(self.name)
-        self.animationView.loopMode = .loop
-        self.animationView.contentMode = .scaleAspectFit
-        self.animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.animation = Animation.named(name)
+        animationView.loopMode = .loop
+        animationView.contentMode = .scaleAspectFit
+        animationView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.addSubview(self.animationView)
+        view.addSubview(animationView)
 
         NSLayoutConstraint.activate([
-            self.animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            self.animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
+            animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
         ])
 
         return view
     }
 
     func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottieView>) {
-        
-        self.animationView.play()
+        animationView.play()
     }
 }

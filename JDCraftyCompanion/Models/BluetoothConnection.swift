@@ -22,11 +22,6 @@ class BluetoothConnection: ObservableObject {
     }
     
     @Published var state: State = .scanning
-    @Published var devices: [Device] = [] {
-        
-        didSet {
-            
-        }
-    }
+    @Published var devices: [Device] = []
     @Published var connectedDevice: Device?
 }

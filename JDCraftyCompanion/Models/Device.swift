@@ -12,20 +12,28 @@ import CoreBluetooth
 
 class Device: ObservableObject {
     
+    // Temperature
+    @Published var currentTemperature = 0.0
+    @Published var targetTemperature = 0
+    @Published var boosterAmount = 0
+    
+    // Device Info
+    @Published var model = ""
+    @Published var firmware = ""
+    @Published var serialNumber = ""
+    @Published var powerOnTime = 0
+    @Published var fullChargeCapacity = 0
+    @Published var remainChargeCapacity = 0
+    
     let peripheral: CBPeripheral
-    
     var name: String {
-        
-        return self.peripheral.name ?? "unknown"
+        return peripheral.name ?? "unknown"
     }
-    
     var identifier: String {
-        
-        return self.peripheral.identifier.uuidString
+        return peripheral.identifier.uuidString
     }
     
     init(withPeripheral peripheral: CBPeripheral) {
-        
         self.peripheral = peripheral
     }
 }
@@ -38,8 +46,7 @@ protocol CoreBluetoothIdentifiable: RawRepresentable where RawValue == String {
 extension CoreBluetoothIdentifiable {
     
     var uuid: CBUUID {
-        
-        return CBUUID(string: self.rawValue)
+        return CBUUID(string: rawValue)
     }
 }
 
@@ -62,7 +69,7 @@ extension Device {
             
             case currentTemperature = "00000011-4C45-4B43-4942-265A524F5453"
             case targetTemperature  = "00000021-4C45-4B43-4942-265A524F5453"
-            case boosterTemperature = "00000031-4C45-4B43-4942-265A524F5453"
+            case boosterAmount      = "00000031-4C45-4B43-4942-265A524F5453"
             case batteryCapacity    = "00000041-4C45-4B43-4942-265A524F5453"
             case ledBrightness      = "00000051-4C45-4B43-4942-265A524F5453"
             

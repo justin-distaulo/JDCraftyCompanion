@@ -11,40 +11,37 @@ import Foundation
 
 class BluetoothService: NSObject {
     
-    private let bluetoothModel: BluetoothConnection // TODO: Use this model
+    private let bluetoothModel: BluetoothConnection
     private let manager = CBCentralManager()
     private var peripheral: CBPeripheral?
     
     required init(withBluetoothModel bluetoothModel: BluetoothConnection) {
-
         self.bluetoothModel = bluetoothModel
         super.init()
-        self.manager.delegate = self
+        manager.delegate = self
     }
     
     func connect(toDevice device: Device) {
-
-        self.bluetoothModel.state = .connecting
-        self.manager.connect(device.peripheral, options: nil)
+        bluetoothModel.state = .connecting
+        manager.connect(device.peripheral, options: nil)
     }
 }
 
 extension BluetoothService: CBCentralManagerDelegate {
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        
         switch central.state {
         case .unknown, .resetting, .unsupported:
-            self.bluetoothModel.state = .error
+            bluetoothModel.state = .error
         case .unauthorized:
-            self.bluetoothModel.state = .unauthorized
+            bluetoothModel.state = .unauthorized
         case .poweredOff:
-            self.bluetoothModel.state = .off
+            bluetoothModel.state = .off
         case .poweredOn:
-            if self.peripheral == nil {
-                self.bluetoothModel.state = .scanning
-                self.bluetoothModel.devices.removeAll()
-                self.manager.scanForPeripherals(withServices: [CBUUID(string: "0x0001")],
+            if peripheral == nil {
+                bluetoothModel.state = .scanning
+                bluetoothModel.devices.removeAll()
+                manager.scanForPeripherals(withServices: [CBUUID(string: "0x0001")],
                                                 options: nil)
             }
         @unknown default:
@@ -53,20 +50,21 @@ extension BluetoothService: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        
-        if !self.bluetoothModel.devices.contains(where: { $0.peripheral == peripheral }) {
-            self.bluetoothModel.devices.append(Device(withPeripheral: peripheral))
+        if !bluetoothModel.devices.contains(where: { $0.peripheral == peripheral }) {
+            bluetoothModel.devices.append(Device(withPeripheral: peripheral))
         }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        
-        peripheral.discoverServices(nil)
         self.peripheral = peripheral
-        self.peripheral?.delegate = self
+        peripheral.delegate = self
+        peripheral.discoverServices(nil)
         
         // TODO: Make this less hacky
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] (_) in
+            guard let self = self else {
+                return
+            }
             guard let device = self.bluetoothModel.devices.first(where: { $0.peripheral == peripheral }) else {
                 self.bluetoothModel.state = .error
                 return
@@ -81,7 +79,6 @@ extension BluetoothService: CBCentralManagerDelegate {
 extension BluetoothService: CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        
         guard let services = peripheral.services else {
             return
         }
@@ -93,7 +90,6 @@ extension BluetoothService: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?) {
-        
         guard let includedServices = service.includedServices else {
             return
         }
@@ -104,7 +100,6 @@ extension BluetoothService: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        
         guard let characteristics = service.characteristics else {
             return
         }
@@ -116,52 +111,52 @@ extension BluetoothService: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        
         guard let data = characteristic.value else {
             return
         }
         
-//        switch Device.Services.temperatureAndBatteryControl(rawValue: characteristic.uuid.uuidString) {
-//        case .currentTemperature:
+        switch Device.Services.temperatureAndBatteryControl(rawValue: characteristic.uuid.uuidString) {
+        case .currentTemperature:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            bluetoothModel.connectedDevice?.currentTemperature = Double(intVal) / 10
+        case .targetTemperature:
+            bluetoothModel.connectedDevice?.targetTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
+        case .boosterAmount:
+            bluetoothModel.connectedDevice?.boosterAmount = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
+        default:
+            break
+        }
+
+        switch Device.Services.info(rawValue: characteristic.uuid.uuidString) {
+        case .model:
+            bluetoothModel.connectedDevice?.model = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        case .firmware:
+            bluetoothModel.connectedDevice?.firmware = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        case .serialNumber:
+            bluetoothModel.connectedDevice?.serialNumber = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        default:
+            break
+        }
+
+        switch Device.Services.diagnostics(rawValue: characteristic.uuid.uuidString) {
+        case .powerOnTime:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            bluetoothModel.connectedDevice?.powerOnTime = Int(intVal)
+        case .fullChargeCapacity:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            bluetoothModel.connectedDevice?.fullChargeCapacity = Int(intVal)
+        case .remainChargeCapacity:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            bluetoothModel.connectedDevice?.remainChargeCapacity = Int(intVal)
+        case .power:
+            // TODO: Maybe figure out what this does?
 //            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-//            self.viewModel.currentTemperature = Double(intVal) / 10
-//        case .targetTemperature:
-//            self.viewModel.targetTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
-//        case .boosterTemperature:
-//            self.viewModel.boosterTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
-//        default:
-//            break
-//        }
-//
-//        switch DeviceServices.info(rawValue: characteristic.uuid.uuidString) {
-//        case .model:
-//            self.viewModel.model = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-//        case .firmware:
-//            self.viewModel.firmware = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-//        case .serialNumber:
-//            self.viewModel.serialNumber = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-//        default:
-//            break
-//        }
-//
-//        switch DeviceServices.diagnostics(rawValue: characteristic.uuid.uuidString) {
-//        case .powerOnTime:
-//            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-//            self.viewModel.powerOnTime = Int(intVal)
-//        case .fullChargeCapacity:
-//            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-//            self.viewModel.fullChargeCapacity = Int(intVal)
-//        case .remainChargeCapacity:
-//            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-//            self.viewModel.remainChargeCapacity = Int(intVal)
-//        case .power:
-//            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
-//            // returns either 0, 32, 32900, 32800 or 32768
-//            // 32 only occurs on battery
-//            // 32900, 32800, 32768 only occur while plugged in
-//            break
-//        default:
-//            break
-//        }
+            // returns either 0, 32, 32900, 32800 or 32768
+            // 32 only occurs on battery
+            // 32900, 32800, 32768 only occur while plugged in
+            break
+        default:
+            break
+        }
     }
 }

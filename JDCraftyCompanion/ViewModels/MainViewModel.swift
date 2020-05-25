@@ -12,83 +12,94 @@ import CoreBluetooth
 
 class MainViewModel: ObservableObject {
     
-    enum LoadingStep {
-        
-        case scanning
-        case connecting
-        case loading
-        case none
-        
-        var text: String {
-            
-            switch self {
+    // Loading
+    @Published var isLoading = true
+    @Published var devices: [Device] = []
+    @Published var loadingText = ""
+    @Published var state: BluetoothConnection.State = .scanning {
+        didSet {
+            switch state {
             case .scanning:
-                return "Searching for device..."
-            case .connecting, .loading:
-                return "Connecting to device..."
+                loadingText = "Searching for device..."
+            case .connecting:
+                loadingText = "Connecting to device..."
+            case .connected:
+                isLoading = false
             default:
-                return ""
+                break
             }
         }
     }
     
-    // Loading
-    @Published var isLoading = true
-    @Published var devices: [Device] = [] {
-        
-        didSet {
-            
-        }
-    }
-    @Published var loadingText = ""
-    
     // Temperature
     @Published var currentTemperature = 0.0
-    @Published var targetTemperature = 0
-    @Published var boosterTemperature = 0
+    @Published var targetTemperature = 0 {
+        didSet {
+            boosterTargetTemperature = targetTemperature + boosterAmount
+        }
+    }
+    @Published var boosterTargetTemperature = 0
     
     // Device Info
-    @Published var model = ""
-    @Published var firmware = ""
-    @Published var serialNumber = ""
-    @Published var powerOnTime = 0
+    @Published private(set) var model = ""
+    @Published private(set) var firmware = ""
+    @Published private(set) var serialNumber = ""
+    @Published private(set) var powerOnTime = 0
     @Published private(set) var battery = 0
     
-    var fullChargeCapacity = 0 {
-        
+    private var boosterAmount = 0 {
         didSet {
-            self.battery = Int(round(Double(self.remainChargeCapacity) / Double(self.fullChargeCapacity) * 100))
+            boosterTargetTemperature = targetTemperature + boosterAmount
         }
     }
-    
-    var remainChargeCapacity = 0 {
-        
+    private var fullChargeCapacity = 0 {
         didSet {
-            self.battery = Int(round(Double(self.remainChargeCapacity) / Double(self.fullChargeCapacity) * 100))
+            if remainChargeCapacity != 0 {
+                battery = Int(round(Double(remainChargeCapacity) / Double(fullChargeCapacity) * 100))
+            }
         }
     }
-    
-    var loadingStep: LoadingStep = .none {
-        
+    private var remainChargeCapacity = 0 {
         didSet {
-            self.loadingText = self.loadingStep.text
+            if remainChargeCapacity != 0 {
+                battery = Int(round(Double(remainChargeCapacity) / Double(fullChargeCapacity) * 100))
+            }
         }
     }
-    
-    @ObservedObject var bluetoothModel: BluetoothConnection
+
+    private let bluetoothModel: BluetoothConnection
     private let bluetoothService: BluetoothService
+    private var connectedDevice: Device? {
+        didSet {
+            guard let connectedDevice = connectedDevice else {
+                return
+            }
+            
+            subs.append(connectedDevice.$serialNumber.assign(to: \MainViewModel.serialNumber, on: self))
+            subs.append(connectedDevice.$model.assign(to: \MainViewModel.model, on: self))
+            subs.append(connectedDevice.$firmware.assign(to: \MainViewModel.firmware, on: self))
+            subs.append(connectedDevice.$powerOnTime.assign(to: \MainViewModel.powerOnTime, on: self))
+            subs.append(connectedDevice.$fullChargeCapacity.assign(to: \MainViewModel.fullChargeCapacity, on: self))
+            subs.append(connectedDevice.$remainChargeCapacity.assign(to: \MainViewModel.remainChargeCapacity, on: self))
+            subs.append(connectedDevice.$currentTemperature.assign(to: \MainViewModel.currentTemperature, on: self))
+            subs.append(connectedDevice.$targetTemperature.assign(to: \MainViewModel.targetTemperature, on: self))
+            subs.append(connectedDevice.$boosterAmount.assign(to: \MainViewModel.boosterAmount, on: self))
+        }
+    }
+    private var subs = [AnyCancellable]()
     
     init() {
-        
-        // TODO: figure out how to bind self to this model
         let bluetoothConnection = BluetoothConnection()
         
-        self.bluetoothModel = bluetoothConnection
-        self.bluetoothService = BluetoothService(withBluetoothModel: bluetoothConnection)
+        bluetoothModel = bluetoothConnection
+        bluetoothService = BluetoothService(withBluetoothModel: bluetoothConnection)
+        
+        subs.append(bluetoothConnection.$devices.assign(to: \MainViewModel.devices, on: self))
+        subs.append(bluetoothConnection.$state.assign(to: \MainViewModel.state, on: self))
+        subs.append(bluetoothConnection.$connectedDevice.assign(to: \MainViewModel.connectedDevice, on: self))
     }
     
     func connect(toDevice device: Device) {
-        
-        self.bluetoothService.connect(toDevice: device)
+        bluetoothService.connect(toDevice: device)
     }
 }
