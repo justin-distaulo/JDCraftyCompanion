@@ -23,8 +23,6 @@ class MainViewModel: ObservableObject {
                 loadingText = "Searching for device..."
             case .connecting:
                 loadingText = "Connecting to device..."
-            case .connected:
-                isLoading = false
             default:
                 break
             }
@@ -46,6 +44,8 @@ class MainViewModel: ObservableObject {
     @Published private(set) var serialNumber = ""
     @Published private(set) var powerOnTime = 0
     @Published private(set) var battery = 0
+    @Published private(set) var batteryHealth = 0
+    @Published private(set) var chargeCycles = 0
     
     private var boosterAmount = 0 {
         didSet {
@@ -57,12 +57,22 @@ class MainViewModel: ObservableObject {
             if remainChargeCapacity != 0 {
                 battery = Int(round(Double(remainChargeCapacity) / Double(fullChargeCapacity) * 100))
             }
+            if originalChargeCapacity != 0 {
+                batteryHealth = Int(round(Double(fullChargeCapacity) / Double(originalChargeCapacity) * 100))
+            }
         }
     }
     private var remainChargeCapacity = 0 {
         didSet {
             if remainChargeCapacity != 0 {
                 battery = Int(round(Double(remainChargeCapacity) / Double(fullChargeCapacity) * 100))
+            }
+        }
+    }
+    private var originalChargeCapacity = 0 {
+        didSet {
+            if originalChargeCapacity != 0 {
+                batteryHealth = Int(round(Double(fullChargeCapacity) / Double(originalChargeCapacity) * 100))
             }
         }
     }
@@ -75,12 +85,15 @@ class MainViewModel: ObservableObject {
                 return
             }
             
+            subs.append(connectedDevice.$allCharacteristicsLoaded.map({ return !$0 }).assign(to: \MainViewModel.isLoading, on: self))
             subs.append(connectedDevice.$serialNumber.assign(to: \MainViewModel.serialNumber, on: self))
             subs.append(connectedDevice.$model.assign(to: \MainViewModel.model, on: self))
             subs.append(connectedDevice.$firmware.assign(to: \MainViewModel.firmware, on: self))
             subs.append(connectedDevice.$powerOnTime.assign(to: \MainViewModel.powerOnTime, on: self))
             subs.append(connectedDevice.$fullChargeCapacity.assign(to: \MainViewModel.fullChargeCapacity, on: self))
             subs.append(connectedDevice.$remainChargeCapacity.assign(to: \MainViewModel.remainChargeCapacity, on: self))
+            subs.append(connectedDevice.$originalChargeCapacity.assign(to: \MainViewModel.originalChargeCapacity, on: self))
+            subs.append(connectedDevice.$chargeCycles.assign(to: \MainViewModel.chargeCycles, on: self))
             subs.append(connectedDevice.$currentTemperature.assign(to: \MainViewModel.currentTemperature, on: self))
             subs.append(connectedDevice.$targetTemperature.assign(to: \MainViewModel.targetTemperature, on: self))
             subs.append(connectedDevice.$boosterAmount.assign(to: \MainViewModel.boosterAmount, on: self))

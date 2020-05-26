@@ -12,6 +12,9 @@ import CoreBluetooth
 
 class Device: ObservableObject {
     
+    // Loading
+    @Published var allCharacteristicsLoaded = false
+    
     // Temperature
     @Published var currentTemperature = 0.0
     @Published var targetTemperature = 0
@@ -24,6 +27,8 @@ class Device: ObservableObject {
     @Published var powerOnTime = 0
     @Published var fullChargeCapacity = 0
     @Published var remainChargeCapacity = 0
+    @Published var originalChargeCapacity = 0
+    @Published var chargeCycles = 0
     
     let peripheral: CBPeripheral
     var name: String {
@@ -32,9 +37,114 @@ class Device: ObservableObject {
     var identifier: String {
         return peripheral.identifier.uuidString
     }
+
+    static let servicesToDiscover = [Services.info.uuid, Services.temperatureAndBatteryControl.uuid, Services.diagnostics.uuid, Services.errorHandling.uuid]
+    static let characteristicsToLoad = [
+        Services.info.uuid: [
+            Services.info.model.uuid,
+            Services.info.firmware.uuid,
+            Services.info.serialNumber.uuid
+        ],
+        Services.temperatureAndBatteryControl.uuid: [
+            Services.temperatureAndBatteryControl.currentTemperature.uuid,
+            Services.temperatureAndBatteryControl.targetTemperature.uuid,
+            Services.temperatureAndBatteryControl.boosterAmount.uuid,
+            Services.temperatureAndBatteryControl.batteryCapacity.uuid,
+            Services.temperatureAndBatteryControl.ledBrightness.uuid
+        ],
+        Services.diagnostics.uuid: [
+            Services.diagnostics.powerOnTime.uuid,
+            Services.diagnostics.fullChargeCapacity.uuid,
+            Services.diagnostics.remainChargeCapacity.uuid,
+            Services.diagnostics.originalChargeCapacity.uuid,
+            Services.diagnostics.chargeCycles.uuid
+        ],
+        Services.errorHandling.uuid: [
+            Services.errorHandling.deviceError.uuid
+        ]
+    ]
+    
+    private var characteristicLoadStatuses = [CBUUID: Bool]() {
+        didSet {
+            guard allCharacteristicsLoaded == false else {
+                return
+            }
+            
+            var allLoaded = true
+            for loaded in characteristicLoadStatuses.values {
+                if !loaded {
+                    allLoaded = false
+                    break
+                }
+            }
+            allCharacteristicsLoaded = allLoaded
+        }
+    }
     
     init(withPeripheral peripheral: CBPeripheral) {
         self.peripheral = peripheral
+        
+        for characteristicsUuids in Self.characteristicsToLoad.values {
+            for uuid in characteristicsUuids {
+                characteristicLoadStatuses[uuid] = false
+            }
+        }
+    }
+    
+    // TODO: Make this model Codable and don't do this
+    func update(valueForCharacteristic characteristic: CBCharacteristic) {
+        
+        guard let data = characteristic.value else {
+            return
+        }
+        
+        switch Device.Services.temperatureAndBatteryControl(rawValue: characteristic.uuid.uuidString) {
+        case .currentTemperature:
+            // This is how you parse a Double
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.currentTemperature = Double(intVal) / 10
+        case .targetTemperature:
+            // This is how you parse an Int
+            self.targetTemperature = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
+        case .boosterAmount:
+            self.boosterAmount = data.withUnsafeBytes { Int($0.load(as: UInt16.self)) } / 10
+        default:
+            break
+        }
+
+        switch Device.Services.info(rawValue: characteristic.uuid.uuidString) {
+        case .model:
+            // This is how you parse a String
+            self.model = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        case .firmware:
+            self.firmware = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        case .serialNumber:
+            self.serialNumber = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        default:
+            break
+        }
+
+        switch Device.Services.diagnostics(rawValue: characteristic.uuid.uuidString) {
+        case .powerOnTime:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.powerOnTime = Int(intVal)
+        case .fullChargeCapacity:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.fullChargeCapacity = Int(intVal)
+        case .remainChargeCapacity:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.remainChargeCapacity = Int(intVal)
+        case .originalChargeCapacity:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.originalChargeCapacity = Int(intVal)
+        case .chargeCycles:
+            let intVal = data.withUnsafeBytes { $0.load(as: UInt16.self) }
+            self.chargeCycles = Int(intVal)
+        default:
+            break
+        }
+        
+        characteristicLoadStatuses[characteristic.uuid] = true
     }
 }
 
@@ -78,13 +188,13 @@ extension Device {
             
         enum diagnostics: String, CoreBluetoothIdentifiable {
             
-            case power                        = "00000063-4C45-4B43-4942-265A524F5453"
             case powerOnTime                  = "00000023-4C45-4B43-4942-265A524F5453"
+            case chargeCycles                 = "00000173-4C45-4B43-4942-265A524F5453"
             case fullChargeCapacity           = "00000143-4C45-4B43-4942-265A524F5453"
             case remainChargeCapacity         = "00000153-4C45-4B43-4942-265A524F5453"
-            case dischargeCycles              = "00000163-4C45-4B43-4942-265A524F5453"
-            case chargeCycles                 = "00000173-4C45-4B43-4942-265A524F5453"
-            case designCapacityAccu           = "00000183-4C45-4B43-4942-265A524F5453"
+            case originalChargeCapacity       = "00000183-4C45-4B43-4942-265A524F5453"
+            case _power                       = "00000063-4C45-4B43-4942-265A524F5453"
+            case _dischargeCycles             = "00000163-4C45-4B43-4942-265A524F5453"
             case _operatingTime               = "00000003-4C45-4B43-4942-265A524F5453"
             case _chargerStatus               = "000000A3-4C45-4B43-4942-265A524F5453"
             case _hardware                    = "00000033-4C45-4B43-4942-265A524F5453"
@@ -115,6 +225,7 @@ extension Device {
             case deviceError = "00000014-4C45-4B43-4942-265A524F5453"
             
             static let uuid = CBUUID(string: "00000004-4C45-4B43-4942-265A524F5453")
+            static var characteristicsToDiscover = [deviceError]
         }
     }
 }

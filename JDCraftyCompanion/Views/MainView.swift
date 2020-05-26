@@ -104,6 +104,18 @@ struct MainView: View {
                         Spacer()
                         Text("\(String(viewModel.battery))%")
                     }
+                    HStack {
+                        Text("Battery health:")
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("\(String(viewModel.batteryHealth))%")
+                    }
+                    HStack {
+                        Text("Charge cycles:")
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("\(String(viewModel.chargeCycles))")
+                    }
                     Spacer()
                 }
                 .padding(.horizontal, 24)
