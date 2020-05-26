@@ -16,6 +16,9 @@
 		860BDFD4245B1062004059AC /* JDCraftyCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFD3245B1062004059AC /* JDCraftyCompanionTests.swift */; };
 		860BDFDF245B1062004059AC /* JDsCraftyCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */; };
 		865C4B542464CD4D00D2A997 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C4B532464CD4D00D2A997 /* MainViewModel.swift */; };
+		8660D0F9247DC34900AA27AE /* TemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660D0F8247DC34900AA27AE /* TemperatureView.swift */; };
+		8660D0FB247DC40500AA27AE /* DeviceInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660D0FA247DC40500AA27AE /* DeviceInfoView.swift */; };
+		8660D0FD247DC47C00AA27AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660D0FC247DC47C00AA27AE /* SettingsView.swift */; };
 		8671063D2478502C00A27DEF /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8671063C2478502C00A27DEF /* DeviceListView.swift */; };
 		86966BF62464BBE4003DAEDD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 86966BF52464BBE4003DAEDD /* Lottie */; };
 		86966C012464CB0B003DAEDD /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFD2464CB0B003DAEDD /* bluetooth.json */; };
@@ -60,6 +63,9 @@
 		860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDsCraftyCompanionUITests.swift; sourceTree = "<group>"; };
 		860BDFE0245B1062004059AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		865C4B532464CD4D00D2A997 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8660D0F8247DC34900AA27AE /* TemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureView.swift; sourceTree = "<group>"; };
+		8660D0FA247DC40500AA27AE /* DeviceInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoView.swift; sourceTree = "<group>"; };
+		8660D0FC247DC47C00AA27AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8671063C2478502C00A27DEF /* DeviceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListView.swift; sourceTree = "<group>"; };
 		86966BFD2464CB0B003DAEDD /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
 		86966BFE2464CB0B003DAEDD /* hamster_basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster_basic.json; sourceTree = "<group>"; };
@@ -100,6 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				860BDFC0245B105D004059AC /* MainView.swift */,
+				8660D0F8247DC34900AA27AE /* TemperatureView.swift */,
+				8660D0FC247DC47C00AA27AE /* SettingsView.swift */,
+				8660D0FA247DC40500AA27AE /* DeviceInfoView.swift */,
 				8671063C2478502C00A27DEF /* DeviceListView.swift */,
 				8609662C246C86B2003F89B5 /* LottieView.swift */,
 			);
@@ -358,8 +367,11 @@
 				86CEFA2A24784F21001136CA /* BluetoothConnection.swift in Sources */,
 				860BDFC1245B105D004059AC /* MainView.swift in Sources */,
 				8609662D246C86B2003F89B5 /* LottieView.swift in Sources */,
+				8660D0FB247DC40500AA27AE /* DeviceInfoView.swift in Sources */,
+				8660D0F9247DC34900AA27AE /* TemperatureView.swift in Sources */,
 				865C4B542464CD4D00D2A997 /* MainViewModel.swift in Sources */,
 				8671063D2478502C00A27DEF /* DeviceListView.swift in Sources */,
+				8660D0FD247DC47C00AA27AE /* SettingsView.swift in Sources */,
 				86DE0C78245B66FA0049B47B /* BluetoothService.swift in Sources */,
 				86CEFA2824784B87001136CA /* Device.swift in Sources */,
 			);
