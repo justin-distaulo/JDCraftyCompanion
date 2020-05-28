@@ -1,4 +1,4 @@
-# JDCraftyCompanion
+# JD's Crafty Companion App
 
 This companion app for the Storz & Bickel Crafty+ portable vape is a personal project I undertook for a few reasons:
 - I wanted to learn about SwiftUI
