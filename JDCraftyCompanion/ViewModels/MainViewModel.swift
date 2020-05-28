@@ -85,18 +85,18 @@ class MainViewModel: ObservableObject {
                 return
             }
             
-            subs.append(connectedDevice.$allCharacteristicsLoaded.map({ return !$0 }).assign(to: \MainViewModel.isLoading, on: self))
-            subs.append(connectedDevice.$serialNumber.assign(to: \MainViewModel.serialNumber, on: self))
-            subs.append(connectedDevice.$model.assign(to: \MainViewModel.model, on: self))
-            subs.append(connectedDevice.$firmware.assign(to: \MainViewModel.firmware, on: self))
-            subs.append(connectedDevice.$powerOnTime.assign(to: \MainViewModel.powerOnTime, on: self))
-            subs.append(connectedDevice.$fullChargeCapacity.assign(to: \MainViewModel.fullChargeCapacity, on: self))
-            subs.append(connectedDevice.$remainChargeCapacity.assign(to: \MainViewModel.remainChargeCapacity, on: self))
-            subs.append(connectedDevice.$originalChargeCapacity.assign(to: \MainViewModel.originalChargeCapacity, on: self))
-            subs.append(connectedDevice.$chargeCycles.assign(to: \MainViewModel.chargeCycles, on: self))
-            subs.append(connectedDevice.$currentTemperature.assign(to: \MainViewModel.currentTemperature, on: self))
-            subs.append(connectedDevice.$targetTemperature.assign(to: \MainViewModel.targetTemperature, on: self))
-            subs.append(connectedDevice.$boosterAmount.assign(to: \MainViewModel.boosterAmount, on: self))
+            subs.append(connectedDevice.$allCharacteristicsLoaded.map({ !$0 }).assign(to: \.isLoading, on: self))
+            subs.append(connectedDevice.$serialNumber.assign(to: \.serialNumber, on: self))
+            subs.append(connectedDevice.$model.assign(to: \.model, on: self))
+            subs.append(connectedDevice.$firmware.assign(to: \.firmware, on: self))
+            subs.append(connectedDevice.$powerOnTime.assign(to: \.powerOnTime, on: self))
+            subs.append(connectedDevice.$fullChargeCapacity.assign(to: \.fullChargeCapacity, on: self))
+            subs.append(connectedDevice.$remainChargeCapacity.assign(to: \.remainChargeCapacity, on: self))
+            subs.append(connectedDevice.$originalChargeCapacity.assign(to: \.originalChargeCapacity, on: self))
+            subs.append(connectedDevice.$chargeCycles.assign(to: \.chargeCycles, on: self))
+            subs.append(connectedDevice.$currentTemperature.map({ Double($0) / 10 }).assign(to: \.currentTemperature, on: self))
+            subs.append(connectedDevice.$targetTemperature.map({ $0 / 10 }).assign(to: \.targetTemperature, on: self))
+            subs.append(connectedDevice.$boosterAmount.map({ $0 / 10 }).assign(to: \.boosterAmount, on: self))
         }
     }
     private var subs = [AnyCancellable]()

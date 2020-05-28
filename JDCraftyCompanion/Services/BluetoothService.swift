@@ -63,7 +63,7 @@ extension BluetoothService: CBCentralManagerDelegate {
 
         self.peripheral = peripheral
         peripheral.delegate = self
-        peripheral.discoverServices(Device.servicesToDiscover)
+        peripheral.discoverServices(Device.Service.uuids)
                 
         bluetoothModel.state = .connected
         bluetoothModel.connectedDevice = device
@@ -78,7 +78,8 @@ extension BluetoothService: CBPeripheralDelegate {
         }
         
         for service in services {
-            peripheral.discoverCharacteristics(Device.characteristicsToLoad[service.uuid], for: service)
+            peripheral.discoverCharacteristics(Device.Service(rawValue: service.uuid.uuidString)?.characteristics.uuids,
+                                               for: service)
         }
     }
     
@@ -94,10 +95,12 @@ extension BluetoothService: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        guard let connectedDevice = bluetoothModel.connectedDevice else {
+        guard let connectedDevice = bluetoothModel.connectedDevice,
+            let data = characteristic.value,
+            let characteristic = Device.Characteristic(rawValue: characteristic.uuid.uuidString) else {
             return
         }
 
-        connectedDevice.update(valueForCharacteristic: characteristic)
+        connectedDevice.updateProperty(for: characteristic, with: data)
     }
 }

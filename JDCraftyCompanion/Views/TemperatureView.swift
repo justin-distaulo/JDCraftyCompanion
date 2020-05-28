@@ -12,7 +12,7 @@ struct TemperatureView: View {
     
     @Environment(\.presentationMode) var presentation
     
-    var viewModel: MainViewModel
+    @ObservedObject var viewModel: MainViewModel
 
     var body: some View {
         VStack(spacing: 12) {
@@ -45,19 +45,5 @@ struct TemperatureView: View {
             }
             Spacer()
         }
-    }
-    
-    func tabItem() -> some View {
-        return self.tabItem {
-            VStack {
-                Image(systemName: "thermometer")
-                Text("Temperature")
-            }
-        }
-    }
-    
-    // TODO: Figure out the proper way to do this
-    func padding() -> some View {
-        return self.padding(.horizontal, 24)
     }
 }

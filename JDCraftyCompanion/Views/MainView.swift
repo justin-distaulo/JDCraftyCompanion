@@ -18,16 +18,13 @@ struct MainView: View {
         ZStack {
             TabView(selection: $selection) {
                 TemperatureView(viewModel: self.viewModel)
-                    .tabItem()
-                    .padding(.horizontal, 24)
+                    .modifier(TabViewModifier())
                     .tag(0)
                 SettingsView(viewModel: self.viewModel)
-                    .tabItem()
-                    .padding(.horizontal, 24)
+                    .modifier(TabViewModifier())
                     .tag(1)
                 DeviceInfoView(viewModel: self.viewModel)
-                    .tabItem()
-                    .padding(.horizontal, 24)
+                    .modifier(TabViewModifier())
                     .tag(2)
             }
             .sheet(isPresented: $viewModel.isLoading, onDismiss: {
@@ -42,3 +39,18 @@ struct MainView: View {
         }
     }
 }
+
+struct TabViewModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        return content
+            .padding(.horizontal, 24)
+            .tabItem {
+                VStack {
+                    Image(systemName: "thermometer")
+                    Text("Temperature")
+                }
+        }
+    }
+}
+

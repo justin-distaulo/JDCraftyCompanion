@@ -12,7 +12,7 @@ struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentation
     
-    var viewModel: MainViewModel
+    @ObservedObject var viewModel: MainViewModel
 
     var body: some View {
         VStack(spacing: 12) {
