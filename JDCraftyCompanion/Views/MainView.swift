@@ -12,7 +12,7 @@ import Lottie
 struct MainView: View {
     
     @State private var selection = 0
-    @ObservedObject var viewModel = MainViewModel()
+    @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
         ZStack {
@@ -26,15 +26,6 @@ struct MainView: View {
                 DeviceInfoView(viewModel: self.viewModel)
                     .modifier(TabViewModifier())
                     .tag(2)
-            }
-            .sheet(isPresented: $viewModel.isLoading, onDismiss: {
-                // SwiftUI does not currently provide a means to prevent the user from dismissing a sheet.
-                // This forces the sheet to reappear if it gets dismissed but there is still no connected device.
-                if self.viewModel.state != .connected {
-                    self.viewModel.isLoading = true
-                }
-            }) {
-                return DeviceListView(viewModel: self.viewModel)
             }
         }
     }

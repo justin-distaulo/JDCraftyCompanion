@@ -181,10 +181,3 @@ extension CBIdentifiable {
         return self.allCases.map({ $0.uuid })
     }
 }
-
-extension Array where Element: CBIdentifiable {
-    
-    var uuids: [CBUUID] {
-        return self.map({ $0.uuid })
-    }
-}

@@ -14,6 +14,7 @@ class BluetoothService: NSObject {
     private let bluetoothModel: BluetoothConnection
     private let manager = CBCentralManager()
     private var peripheral: CBPeripheral?
+    private var shouldScan = false
     
     required init(withBluetoothModel bluetoothModel: BluetoothConnection) {
         self.bluetoothModel = bluetoothModel
@@ -24,6 +25,20 @@ class BluetoothService: NSObject {
     func connect(toDevice device: Device) {
         bluetoothModel.state = .connecting
         manager.connect(device.peripheral, options: nil)
+    }
+    
+    func startScanning() {
+        shouldScan = true
+        if self.manager.state == .poweredOn {
+            scan()
+        }
+    }
+    
+    private func scan() {
+        bluetoothModel.state = .scanning
+        bluetoothModel.devices.removeAll()
+        manager.scanForPeripherals(withServices: [CBUUID(string: "0x0001")],
+                                        options: nil)
     }
 }
 
@@ -38,11 +53,8 @@ extension BluetoothService: CBCentralManagerDelegate {
         case .poweredOff:
             bluetoothModel.state = .off
         case .poweredOn:
-            if peripheral == nil {
-                bluetoothModel.state = .scanning
-                bluetoothModel.devices.removeAll()
-                manager.scanForPeripherals(withServices: [CBUUID(string: "0x0001")],
-                                                options: nil)
+            if peripheral == nil && shouldScan {
+                scan()
             }
         @unknown default:
             print("For some reason the bluetooth state is weird. This is the current value: \(central.state)")

@@ -13,17 +13,20 @@ import CoreBluetooth
 class MainViewModel: ObservableObject {
     
     // Loading
-    @Published var isLoading = true
+    @Published var isLoading = false
     @Published var devices: [Device] = []
     @Published var loadingText = ""
-    @Published var state: BluetoothConnection.State = .scanning {
+    @Published var state: BluetoothConnection.State = .off {
         didSet {
             switch state {
             case .scanning:
+                isLoading = true
                 loadingText = "Searching for device..."
             case .connecting:
+                isLoading = true
                 loadingText = "Connecting to device..."
             default:
+                isLoading = false
                 break
             }
         }
@@ -110,6 +113,10 @@ class MainViewModel: ObservableObject {
         subs.append(bluetoothConnection.$devices.assign(to: \MainViewModel.devices, on: self))
         subs.append(bluetoothConnection.$state.assign(to: \MainViewModel.state, on: self))
         subs.append(bluetoothConnection.$connectedDevice.assign(to: \MainViewModel.connectedDevice, on: self))
+    }
+    
+    func startScanning() {
+        bluetoothService.startScanning()
     }
     
     func connect(toDevice device: Device) {
