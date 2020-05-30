@@ -13,24 +13,41 @@ struct DeviceListView: View {
     @ObservedObject var viewModel: MainViewModel
     
     var body: some View {
-//        GeometryReader { geometry in
-            VStack(spacing: 16) {
-                Text(self.viewModel.loadingText)
-                Text("Found Devices:")
-                ForEach(self.viewModel.devices, id: \.identifier) { device in
-                    Text(device.name).onTapGesture {
-                        if self.viewModel.state == .scanning {
-                            self.viewModel.connect(toDevice: device)
+        GeometryReader { geometry in
+            VStack {
+                Spacer()
+                VStack(spacing: 8) {
+                    Spacer(minLength: 2)
+                    Text("Found Devices:")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.jdText)
+                    ForEach(self.viewModel.devices, id: \.identifier) { device in
+                        HStack {
+                            Text(device.name)
+                                .font(.body)
+                                .foregroundColor(Color.jdText)
+                            Spacer()
+                            Button("Connect") {
+                                if self.viewModel.state == .scanning {
+                                    self.viewModel.connect(toDevice: device)
+                                }
+                            }
+                            .font(.body)
+                            .foregroundColor(Color.jdText)
                         }
+                        .padding(.horizontal, 16)
                     }
+                    Spacer(minLength: 4)
                 }
+                .frame(width: geometry.size.width - 16, height: geometry.size.height/8, alignment: .bottom)
+                .background(Color.jdBackground)
+                .cornerRadius(6)
+                Spacer()
+                    .frame(width: geometry.size.width, height: 8, alignment: .bottom)
             }
-//            .frame(width: geometry.size.width)
-//            .padding(.top, 16)
-//            .padding(.bottom, geometry.safeAreaInsets.bottom)
-            .background(Color.white)
         }
-//    }
+    }
 }
 
 struct BlurView: UIViewRepresentable {

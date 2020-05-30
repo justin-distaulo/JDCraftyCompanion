@@ -29,6 +29,7 @@
 		86966C022464CB0B003DAEDD /* hamster_basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFE2464CB0B003DAEDD /* hamster_basic.json */; };
 		86966C032464CB0B003DAEDD /* hamster.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFF2464CB0B003DAEDD /* hamster.json */; };
 		86966C042464CB0B003DAEDD /* hypnotoad.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966C002464CB0B003DAEDD /* hypnotoad.json */; };
+		869DF8F42482BE8800569CCA /* DeviceStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DF8F32482BE8800569CCA /* DeviceStatusView.swift */; };
 		86CEFA2824784B87001136CA /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CEFA2724784B87001136CA /* Device.swift */; };
 		86CEFA2A24784F21001136CA /* BluetoothConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CEFA2924784F21001136CA /* BluetoothConnection.swift */; };
 		86DE0C78245B66FA0049B47B /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE0C77245B66FA0049B47B /* BluetoothService.swift */; };
@@ -53,7 +54,7 @@
 
 /* Begin PBXFileReference section */
 		8609662C246C86B2003F89B5 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		860BDFB9245B105D004059AC /* Crafty Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crafty Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		860BDFB9245B105D004059AC /* JD's Crafty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JD's Crafty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860BDFBC245B105D004059AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		860BDFBE245B105D004059AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		860BDFC0245B105D004059AC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		86966BFE2464CB0B003DAEDD /* hamster_basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster_basic.json; sourceTree = "<group>"; };
 		86966BFF2464CB0B003DAEDD /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
 		86966C002464CB0B003DAEDD /* hypnotoad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hypnotoad.json; sourceTree = "<group>"; };
+		869DF8F32482BE8800569CCA /* DeviceStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceStatusView.swift; sourceTree = "<group>"; };
 		86CEFA2724784B87001136CA /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		86CEFA2924784F21001136CA /* BluetoothConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnection.swift; sourceTree = "<group>"; };
 		86DE0C77245B66FA0049B47B /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
@@ -114,12 +116,11 @@
 			isa = PBXGroup;
 			children = (
 				862A87A524816DAE00475C52 /* LaunchView.swift */,
-				860BDFC0245B105D004059AC /* MainView.swift */,
-				8660D0F8247DC34900AA27AE /* TemperatureView.swift */,
-				8660D0FC247DC47C00AA27AE /* SettingsView.swift */,
-				8660D0FA247DC40500AA27AE /* DeviceInfoView.swift */,
-				8671063C2478502C00A27DEF /* DeviceListView.swift */,
 				8609662C246C86B2003F89B5 /* LottieView.swift */,
+				8671063C2478502C00A27DEF /* DeviceListView.swift */,
+				860BDFC0245B105D004059AC /* MainView.swift */,
+				869DF8F32482BE8800569CCA /* DeviceStatusView.swift */,
+				869DF8F22482BE2600569CCA /* Tabs */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,7 +165,7 @@
 		860BDFBA245B105D004059AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				860BDFB9245B105D004059AC /* Crafty Companion.app */,
+				860BDFB9245B105D004059AC /* JD's Crafty.app */,
 				860BDFCF245B1062004059AC /* JDCraftyCompanionTests.xctest */,
 				860BDFDA245B1062004059AC /* JDCraftyCompanionUITests.xctest */,
 			);
@@ -234,6 +235,16 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		869DF8F22482BE2600569CCA /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				8660D0F8247DC34900AA27AE /* TemperatureView.swift */,
+				8660D0FC247DC47C00AA27AE /* SettingsView.swift */,
+				8660D0FA247DC40500AA27AE /* DeviceInfoView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		86CEFA2624784B4D001136CA /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,7 +273,7 @@
 				86966BF52464BBE4003DAEDD /* Lottie */,
 			);
 			productName = "JD's Crafty Companion";
-			productReference = 860BDFB9245B105D004059AC /* Crafty Companion.app */;
+			productReference = 860BDFB9245B105D004059AC /* JD's Crafty.app */;
 			productType = "com.apple.product-type.application";
 		};
 		860BDFCE245B1062004059AC /* JDCraftyCompanionTests */ = {
@@ -383,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				869DF8F42482BE8800569CCA /* DeviceStatusView.swift in Sources */,
 				860BDFBD245B105D004059AC /* AppDelegate.swift in Sources */,
 				860BDFBF245B105D004059AC /* SceneDelegate.swift in Sources */,
 				86CEFA2A24784F21001136CA /* BluetoothConnection.swift in Sources */,
@@ -561,8 +573,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = justin.distaulo.JDCraftyCompanion;
-				PRODUCT_NAME = "Crafty Companion";
+				PRODUCT_NAME = "JD's Crafty";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -583,8 +596,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = justin.distaulo.JDCraftyCompanion;
-				PRODUCT_NAME = "Crafty Companion";
+				PRODUCT_NAME = "JD's Crafty";
 				PROVISIONING_PROFILE_SPECIFIER = "JD's Crafty Companion - Ad Hoc Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

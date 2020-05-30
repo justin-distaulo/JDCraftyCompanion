@@ -79,10 +79,8 @@ class MainViewModel: ObservableObject {
             }
         }
     }
-
-    private let bluetoothModel: BluetoothConnection
-    private let bluetoothService: BluetoothService
-    private var connectedDevice: Device? {
+    
+    var connectedDevice: Device? {
         didSet {
             guard let connectedDevice = connectedDevice else {
                 return
@@ -102,6 +100,9 @@ class MainViewModel: ObservableObject {
             subs.append(connectedDevice.$boosterAmount.map({ $0 / 10 }).assign(to: \.boosterAmount, on: self))
         }
     }
+
+    private let bluetoothModel: BluetoothConnection
+    private let bluetoothService: BluetoothService
     private var subs = [AnyCancellable]()
     
     init() {

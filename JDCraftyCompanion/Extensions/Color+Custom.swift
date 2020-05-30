@@ -16,4 +16,7 @@ extension Color {
     static var jdText: Color {
         return Color("JDText")
     }
+    static var jdHighlight: Color {
+        return Color("JDHighlight")
+    }
 }

@@ -13,11 +13,12 @@ struct DeviceInfoView: View {
     @Environment(\.presentationMode) var presentation
     
     @ObservedObject var viewModel: MainViewModel
-
+    
     var body: some View {
         VStack(spacing: 12) {
             HStack {
                 Text("Device Info")
+                    .foregroundColor(Color.jdText)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Spacer()
@@ -26,61 +27,54 @@ struct DeviceInfoView: View {
             Spacer().frame(maxHeight: 60)
             HStack {
                 Text("Serial number:")
+                    .foregroundColor(Color.jdText)
                     .font(.body)
                     .fontWeight(.bold)
                 Spacer()
                 Text(viewModel.serialNumber)
+                    .foregroundColor(Color.jdText)
             }
             HStack {
                 Text("Model:")
+                    .foregroundColor(Color.jdText)
                     .fontWeight(.bold)
                 Spacer()
                 Text(viewModel.model)
+                    .foregroundColor(Color.jdText)
             }
             HStack {
                 Text("Firmware version:")
+                    .foregroundColor(Color.jdText)
                     .fontWeight(.bold)
                 Spacer()
                 Text(viewModel.firmware)
+                    .foregroundColor(Color.jdText)
             }
             HStack {
                 Text("Power on time:")
+                    .foregroundColor(Color.jdText)
                     .fontWeight(.bold)
                 Spacer()
                 Text("\(String(viewModel.powerOnTime)) hours")
-            }
-            HStack {
-                Text("Battery:")
-                    .fontWeight(.bold)
-                Spacer()
-                Text("\(String(viewModel.battery))%")
+                    .foregroundColor(Color.jdText)
             }
             HStack {
                 Text("Battery health:")
+                    .foregroundColor(Color.jdText)
                     .fontWeight(.bold)
                 Spacer()
                 Text("\(String(viewModel.batteryHealth))%")
+                    .foregroundColor(Color.jdText)
             }
             HStack {
                 Text("Charge cycles:")
+                    .foregroundColor(Color.jdText)
                     .fontWeight(.bold)
                 Spacer()
                 Text("\(String(viewModel.chargeCycles))")
+                    .foregroundColor(Color.jdText)
             }
             Spacer()
         }
-    }
-    
-    func tabItem() -> some View {
-        return self.tabItem {
-            VStack {
-                Image(systemName: "info.circle")
-                Text("Information")
-            }
-        }
-    }
-    
-    func padding() -> some View {
-        return self.padding(.horizontal, 24)
     }
 }
