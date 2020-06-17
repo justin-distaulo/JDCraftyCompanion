@@ -7,102 +7,96 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8609662D246C86B2003F89B5 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609662C246C86B2003F89B5 /* LottieView.swift */; };
-		860BDFBD245B105D004059AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFBC245B105D004059AC /* AppDelegate.swift */; };
-		860BDFBF245B105D004059AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFBE245B105D004059AC /* SceneDelegate.swift */; };
-		860BDFC1245B105D004059AC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFC0245B105D004059AC /* MainView.swift */; };
-		860BDFC3245B1062004059AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860BDFC2245B1062004059AC /* Assets.xcassets */; };
-		860BDFC6245B1062004059AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 860BDFC5245B1062004059AC /* Preview Assets.xcassets */; };
-		860BDFD4245B1062004059AC /* JDCraftyCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFD3245B1062004059AC /* JDCraftyCompanionTests.swift */; };
-		860BDFDF245B1062004059AC /* JDsCraftyCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */; };
-		860FBD7D24818F94005570E6 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FBD7C24818F94005570E6 /* Color+Custom.swift */; };
-		860FBD7F24818FD5005570E6 /* Array+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860FBD7E24818FD5005570E6 /* Array+Custom.swift */; };
-		862A87A624816DAE00475C52 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862A87A524816DAE00475C52 /* LaunchView.swift */; };
-		862A87AA2481804C00475C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862A87A92481804C00475C52 /* LaunchScreen.storyboard */; };
-		865C4B542464CD4D00D2A997 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865C4B532464CD4D00D2A997 /* MainViewModel.swift */; };
-		8660D0F9247DC34900AA27AE /* TemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660D0F8247DC34900AA27AE /* TemperatureView.swift */; };
-		8660D0FB247DC40500AA27AE /* DeviceInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660D0FA247DC40500AA27AE /* DeviceInfoView.swift */; };
-		8660D0FD247DC47C00AA27AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660D0FC247DC47C00AA27AE /* SettingsView.swift */; };
-		8671063D2478502C00A27DEF /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8671063C2478502C00A27DEF /* DeviceListView.swift */; };
-		86966BF62464BBE4003DAEDD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 86966BF52464BBE4003DAEDD /* Lottie */; };
-		86966C012464CB0B003DAEDD /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFD2464CB0B003DAEDD /* bluetooth.json */; };
-		86966C022464CB0B003DAEDD /* hamster_basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFE2464CB0B003DAEDD /* hamster_basic.json */; };
-		86966C032464CB0B003DAEDD /* hamster.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966BFF2464CB0B003DAEDD /* hamster.json */; };
-		86966C042464CB0B003DAEDD /* hypnotoad.json in Resources */ = {isa = PBXBuildFile; fileRef = 86966C002464CB0B003DAEDD /* hypnotoad.json */; };
-		869DF8F42482BE8800569CCA /* DeviceStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869DF8F32482BE8800569CCA /* DeviceStatusView.swift */; };
-		86CEFA2824784B87001136CA /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CEFA2724784B87001136CA /* Device.swift */; };
-		86CEFA2A24784F21001136CA /* BluetoothConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CEFA2924784F21001136CA /* BluetoothConnection.swift */; };
-		86DE0C78245B66FA0049B47B /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DE0C77245B66FA0049B47B /* BluetoothService.swift */; };
+		8615862A2499380F0005DCDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861586292499380F0005DCDA /* AppDelegate.swift */; };
+		8615862E249938100005DCDA /* TemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615862D249938100005DCDA /* TemperatureViewController.swift */; };
+		86158630249938100005DCDA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615862F249938100005DCDA /* SettingsViewController.swift */; };
+		86158643249938120005DCDA /* JDCraftyCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86158642249938120005DCDA /* JDCraftyCompanionTests.swift */; };
+		8615864E249938120005DCDA /* JDCraftyCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615864D249938120005DCDA /* JDCraftyCompanionUITests.swift */; };
+		8615866D24993DBE0005DCDA /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615865C24993DBD0005DCDA /* BluetoothService.swift */; };
+		8615866E24993DBE0005DCDA /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615865E24993DBD0005DCDA /* Device.swift */; };
+		8615866F24993DBE0005DCDA /* BluetoothConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615865F24993DBD0005DCDA /* BluetoothConnection.swift */; };
+		8615867024993DBE0005DCDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8615866124993DBD0005DCDA /* LaunchScreen.storyboard */; };
+		8615867124993DBE0005DCDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8615866224993DBD0005DCDA /* Assets.xcassets */; };
+		8615867224993DBE0005DCDA /* hamster.json in Resources */ = {isa = PBXBuildFile; fileRef = 8615866424993DBD0005DCDA /* hamster.json */; };
+		8615867324993DBE0005DCDA /* bluetooth.json in Resources */ = {isa = PBXBuildFile; fileRef = 8615866524993DBD0005DCDA /* bluetooth.json */; };
+		8615867424993DBE0005DCDA /* hamster_basic.json in Resources */ = {isa = PBXBuildFile; fileRef = 8615866624993DBD0005DCDA /* hamster_basic.json */; };
+		8615867524993DBE0005DCDA /* hypnotoad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8615866724993DBD0005DCDA /* hypnotoad.json */; };
+		8615867624993DBE0005DCDA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615866924993DBE0005DCDA /* MainViewModel.swift */; };
+		8615867724993DBE0005DCDA /* Array+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615866B24993DBE0005DCDA /* Array+Custom.swift */; };
+		8615867824993DBE0005DCDA /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615866C24993DBE0005DCDA /* UIColor+Custom.swift */; };
+		86C48DD824994146004943DE /* DeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C48DD724994146004943DE /* DeviceInfoViewController.swift */; };
+		86C48DDA2499465C004943DE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C48DD92499465C004943DE /* TabBarViewController.swift */; };
+		86C48DDC249948DE004943DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C48DDB249948DE004943DE /* SceneDelegate.swift */; };
+		86C48DDF24996630004943DE /* DeviceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C48DDE24996630004943DE /* DeviceSelectionViewController.swift */; };
+		86C48DE224996E8E004943DE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 86C48DE124996E8E004943DE /* Lottie */; };
+		86C48DE424997605004943DE /* DeviceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C48DE324997605004943DE /* DeviceSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		860BDFD0245B1062004059AC /* PBXContainerItemProxy */ = {
+		8615863F249938120005DCDA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 860BDFB1245B105D004059AC /* Project object */;
+			containerPortal = 8615861E2499380F0005DCDA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 860BDFB8245B105D004059AC;
-			remoteInfo = "JD's Crafty Companion";
+			remoteGlobalIDString = 861586252499380F0005DCDA;
+			remoteInfo = JDCraftyCompanion;
 		};
-		860BDFDB245B1062004059AC /* PBXContainerItemProxy */ = {
+		8615864A249938120005DCDA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 860BDFB1245B105D004059AC /* Project object */;
+			containerPortal = 8615861E2499380F0005DCDA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 860BDFB8245B105D004059AC;
-			remoteInfo = "JD's Crafty Companion";
+			remoteGlobalIDString = 861586252499380F0005DCDA;
+			remoteInfo = JDCraftyCompanion;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8609662C246C86B2003F89B5 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		860BDFB9245B105D004059AC /* JD's Crafty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JD's Crafty.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		860BDFBC245B105D004059AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		860BDFBE245B105D004059AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		860BDFC0245B105D004059AC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		860BDFC2245B1062004059AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		860BDFC5245B1062004059AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		860BDFCA245B1062004059AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		860BDFCF245B1062004059AC /* JDCraftyCompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDCraftyCompanionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		860BDFD3245B1062004059AC /* JDCraftyCompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDCraftyCompanionTests.swift; sourceTree = "<group>"; };
-		860BDFD5245B1062004059AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		860BDFDA245B1062004059AC /* JDCraftyCompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDCraftyCompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDsCraftyCompanionUITests.swift; sourceTree = "<group>"; };
-		860BDFE0245B1062004059AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		860FBD7C24818F94005570E6 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
-		860FBD7E24818FD5005570E6 /* Array+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Custom.swift"; sourceTree = "<group>"; };
-		862A87A524816DAE00475C52 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
-		862A87A92481804C00475C52 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		865C4B532464CD4D00D2A997 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		8660D0F8247DC34900AA27AE /* TemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureView.swift; sourceTree = "<group>"; };
-		8660D0FA247DC40500AA27AE /* DeviceInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoView.swift; sourceTree = "<group>"; };
-		8660D0FC247DC47C00AA27AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		8671063C2478502C00A27DEF /* DeviceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListView.swift; sourceTree = "<group>"; };
-		86966BFD2464CB0B003DAEDD /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
-		86966BFE2464CB0B003DAEDD /* hamster_basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster_basic.json; sourceTree = "<group>"; };
-		86966BFF2464CB0B003DAEDD /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
-		86966C002464CB0B003DAEDD /* hypnotoad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hypnotoad.json; sourceTree = "<group>"; };
-		869DF8F32482BE8800569CCA /* DeviceStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceStatusView.swift; sourceTree = "<group>"; };
-		86CEFA2724784B87001136CA /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		86CEFA2924784F21001136CA /* BluetoothConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnection.swift; sourceTree = "<group>"; };
-		86DE0C77245B66FA0049B47B /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		861586262499380F0005DCDA /* JDCraftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JDCraftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		861586292499380F0005DCDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8615862D249938100005DCDA /* TemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureViewController.swift; sourceTree = "<group>"; };
+		8615862F249938100005DCDA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		86158639249938120005DCDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8615863E249938120005DCDA /* JDCraftyCompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDCraftyCompanionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86158642249938120005DCDA /* JDCraftyCompanionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDCraftyCompanionTests.swift; sourceTree = "<group>"; };
+		86158644249938120005DCDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86158649249938120005DCDA /* JDCraftyCompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JDCraftyCompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8615864D249938120005DCDA /* JDCraftyCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JDCraftyCompanionUITests.swift; sourceTree = "<group>"; };
+		8615864F249938120005DCDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8615865C24993DBD0005DCDA /* BluetoothService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		8615865E24993DBD0005DCDA /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		8615865F24993DBD0005DCDA /* BluetoothConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnection.swift; sourceTree = "<group>"; };
+		8615866124993DBD0005DCDA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8615866224993DBD0005DCDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8615866424993DBD0005DCDA /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
+		8615866524993DBD0005DCDA /* bluetooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bluetooth.json; sourceTree = "<group>"; };
+		8615866624993DBD0005DCDA /* hamster_basic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster_basic.json; sourceTree = "<group>"; };
+		8615866724993DBD0005DCDA /* hypnotoad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hypnotoad.json; sourceTree = "<group>"; };
+		8615866924993DBE0005DCDA /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		8615866B24993DBE0005DCDA /* Array+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Custom.swift"; sourceTree = "<group>"; };
+		8615866C24993DBE0005DCDA /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		86C48DD724994146004943DE /* DeviceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoViewController.swift; sourceTree = "<group>"; };
+		86C48DD92499465C004943DE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		86C48DDB249948DE004943DE /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		86C48DDE24996630004943DE /* DeviceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectionViewController.swift; sourceTree = "<group>"; };
+		86C48DE324997605004943DE /* DeviceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		860BDFB6245B105D004059AC /* Frameworks */ = {
+		861586232499380F0005DCDA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86966BF62464BBE4003DAEDD /* Lottie in Frameworks */,
+				86C48DE224996E8E004943DE /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		860BDFCC245B1062004059AC /* Frameworks */ = {
+		8615863B249938120005DCDA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		860BDFD7245B1062004059AC /* Frameworks */ = {
+		86158646249938120005DCDA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -112,157 +106,146 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8609662E246C86F7003F89B5 /* Views */ = {
+		8615861D2499380F0005DCDA = {
 			isa = PBXGroup;
 			children = (
-				862A87A524816DAE00475C52 /* LaunchView.swift */,
-				8609662C246C86B2003F89B5 /* LottieView.swift */,
-				8671063C2478502C00A27DEF /* DeviceListView.swift */,
-				860BDFC0245B105D004059AC /* MainView.swift */,
-				869DF8F32482BE8800569CCA /* DeviceStatusView.swift */,
-				869DF8F22482BE2600569CCA /* Tabs */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8609662F246C870E003F89B5 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				865C4B532464CD4D00D2A997 /* MainViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		86096630246C8726003F89B5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				86CEFA2924784F21001136CA /* BluetoothConnection.swift */,
-				86CEFA2724784B87001136CA /* Device.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		86096631246C8730003F89B5 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				86966BFA2464C196003DAEDD /* Animations */,
-				860BDFC2245B1062004059AC /* Assets.xcassets */,
-				862A87A92481804C00475C52 /* LaunchScreen.storyboard */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		860BDFB0245B105D004059AC = {
-			isa = PBXGroup;
-			children = (
-				860BDFBB245B105D004059AC /* JDCraftyCompanion */,
-				860BDFD2245B1062004059AC /* JDCraftyCompanionTests */,
-				860BDFDD245B1062004059AC /* JDCraftyCompanionUITests */,
-				860BDFBA245B105D004059AC /* Products */,
+				861586282499380F0005DCDA /* JDCraftyCompanion */,
+				86158641249938120005DCDA /* JDCraftyCompanionTests */,
+				8615864C249938120005DCDA /* JDCraftyCompanionUITests */,
+				861586272499380F0005DCDA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		860BDFBA245B105D004059AC /* Products */ = {
+		861586272499380F0005DCDA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				860BDFB9245B105D004059AC /* JD's Crafty.app */,
-				860BDFCF245B1062004059AC /* JDCraftyCompanionTests.xctest */,
-				860BDFDA245B1062004059AC /* JDCraftyCompanionUITests.xctest */,
+				861586262499380F0005DCDA /* JDCraftyCompanion.app */,
+				8615863E249938120005DCDA /* JDCraftyCompanionTests.xctest */,
+				86158649249938120005DCDA /* JDCraftyCompanionUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		860BDFBB245B105D004059AC /* JDCraftyCompanion */ = {
+		861586282499380F0005DCDA /* JDCraftyCompanion */ = {
 			isa = PBXGroup;
 			children = (
-				8609662E246C86F7003F89B5 /* Views */,
-				8609662F246C870E003F89B5 /* ViewModels */,
-				86096630246C8726003F89B5 /* Models */,
-				86CEFA2624784B4D001136CA /* Services */,
-				860FBD7B24818F62005570E6 /* Extensions */,
-				86096631246C8730003F89B5 /* Resources */,
-				860BDFBC245B105D004059AC /* AppDelegate.swift */,
-				860BDFBE245B105D004059AC /* SceneDelegate.swift */,
-				860BDFCA245B1062004059AC /* Info.plist */,
-				860BDFC4245B1062004059AC /* Preview Content */,
+				8615866A24993DBE0005DCDA /* Extensions */,
+				8615865D24993DBD0005DCDA /* Models */,
+				8615866024993DBD0005DCDA /* Resources */,
+				8615865B24993DBD0005DCDA /* Services */,
+				8615867924993E0F0005DCDA /* ViewControllers */,
+				86C48DE524997617004943DE /* Views */,
+				8615866824993DBE0005DCDA /* ViewModels */,
+				861586292499380F0005DCDA /* AppDelegate.swift */,
+				86C48DDB249948DE004943DE /* SceneDelegate.swift */,
+				86158639249938120005DCDA /* Info.plist */,
 			);
 			path = JDCraftyCompanion;
 			sourceTree = "<group>";
 		};
-		860BDFC4245B1062004059AC /* Preview Content */ = {
+		86158641249938120005DCDA /* JDCraftyCompanionTests */ = {
 			isa = PBXGroup;
 			children = (
-				860BDFC5245B1062004059AC /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		860BDFD2245B1062004059AC /* JDCraftyCompanionTests */ = {
-			isa = PBXGroup;
-			children = (
-				860BDFD3245B1062004059AC /* JDCraftyCompanionTests.swift */,
-				860BDFD5245B1062004059AC /* Info.plist */,
+				86158642249938120005DCDA /* JDCraftyCompanionTests.swift */,
+				86158644249938120005DCDA /* Info.plist */,
 			);
 			path = JDCraftyCompanionTests;
 			sourceTree = "<group>";
 		};
-		860BDFDD245B1062004059AC /* JDCraftyCompanionUITests */ = {
+		8615864C249938120005DCDA /* JDCraftyCompanionUITests */ = {
 			isa = PBXGroup;
 			children = (
-				860BDFDE245B1062004059AC /* JDsCraftyCompanionUITests.swift */,
-				860BDFE0245B1062004059AC /* Info.plist */,
+				8615864D249938120005DCDA /* JDCraftyCompanionUITests.swift */,
+				8615864F249938120005DCDA /* Info.plist */,
 			);
 			path = JDCraftyCompanionUITests;
 			sourceTree = "<group>";
 		};
-		860FBD7B24818F62005570E6 /* Extensions */ = {
+		8615865B24993DBD0005DCDA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				860FBD7C24818F94005570E6 /* Color+Custom.swift */,
-				860FBD7E24818FD5005570E6 /* Array+Custom.swift */,
+				8615865C24993DBD0005DCDA /* BluetoothService.swift */,
 			);
-			path = Extensions;
+			path = Services;
 			sourceTree = "<group>";
 		};
-		86966BFA2464C196003DAEDD /* Animations */ = {
+		8615865D24993DBD0005DCDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				86966BFD2464CB0B003DAEDD /* bluetooth.json */,
-				86966BFE2464CB0B003DAEDD /* hamster_basic.json */,
-				86966BFF2464CB0B003DAEDD /* hamster.json */,
-				86966C002464CB0B003DAEDD /* hypnotoad.json */,
+				8615865F24993DBD0005DCDA /* BluetoothConnection.swift */,
+				8615865E24993DBD0005DCDA /* Device.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8615866024993DBD0005DCDA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8615866224993DBD0005DCDA /* Assets.xcassets */,
+				8615866124993DBD0005DCDA /* LaunchScreen.storyboard */,
+				8615866324993DBD0005DCDA /* Animations */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8615866324993DBD0005DCDA /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				8615866524993DBD0005DCDA /* bluetooth.json */,
+				8615866424993DBD0005DCDA /* hamster.json */,
+				8615866624993DBD0005DCDA /* hamster_basic.json */,
+				8615866724993DBD0005DCDA /* hypnotoad.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		869DF8F22482BE2600569CCA /* Tabs */ = {
+		8615866824993DBE0005DCDA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				8660D0F8247DC34900AA27AE /* TemperatureView.swift */,
-				8660D0FC247DC47C00AA27AE /* SettingsView.swift */,
-				8660D0FA247DC40500AA27AE /* DeviceInfoView.swift */,
+				8615866924993DBE0005DCDA /* MainViewModel.swift */,
 			);
-			path = Tabs;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		86CEFA2624784B4D001136CA /* Services */ = {
+		8615866A24993DBE0005DCDA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				86DE0C77245B66FA0049B47B /* BluetoothService.swift */,
+				8615866B24993DBE0005DCDA /* Array+Custom.swift */,
+				8615866C24993DBE0005DCDA /* UIColor+Custom.swift */,
 			);
-			path = Services;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8615867924993E0F0005DCDA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				86C48DD92499465C004943DE /* TabBarViewController.swift */,
+				86C48DDE24996630004943DE /* DeviceSelectionViewController.swift */,
+				8615862D249938100005DCDA /* TemperatureViewController.swift */,
+				8615862F249938100005DCDA /* SettingsViewController.swift */,
+				86C48DD724994146004943DE /* DeviceInfoViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		86C48DE524997617004943DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86C48DE324997605004943DE /* DeviceSelectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		860BDFB8245B105D004059AC /* JDCraftyCompanion */ = {
+		861586252499380F0005DCDA /* JDCraftyCompanion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 860BDFE3245B1062004059AC /* Build configuration list for PBXNativeTarget "JDCraftyCompanion" */;
+			buildConfigurationList = 86158652249938120005DCDA /* Build configuration list for PBXNativeTarget "JDCraftyCompanion" */;
 			buildPhases = (
-				860BDFB5245B105D004059AC /* Sources */,
-				860BDFB6245B105D004059AC /* Frameworks */,
-				860BDFB7245B105D004059AC /* Resources */,
+				861586222499380F0005DCDA /* Sources */,
+				861586232499380F0005DCDA /* Frameworks */,
+				861586242499380F0005DCDA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -270,72 +253,72 @@
 			);
 			name = JDCraftyCompanion;
 			packageProductDependencies = (
-				86966BF52464BBE4003DAEDD /* Lottie */,
+				86C48DE124996E8E004943DE /* Lottie */,
 			);
-			productName = "JD's Crafty Companion";
-			productReference = 860BDFB9245B105D004059AC /* JD's Crafty.app */;
+			productName = JDCraftyCompanion;
+			productReference = 861586262499380F0005DCDA /* JDCraftyCompanion.app */;
 			productType = "com.apple.product-type.application";
 		};
-		860BDFCE245B1062004059AC /* JDCraftyCompanionTests */ = {
+		8615863D249938120005DCDA /* JDCraftyCompanionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 860BDFE6245B1062004059AC /* Build configuration list for PBXNativeTarget "JDCraftyCompanionTests" */;
+			buildConfigurationList = 86158655249938120005DCDA /* Build configuration list for PBXNativeTarget "JDCraftyCompanionTests" */;
 			buildPhases = (
-				860BDFCB245B1062004059AC /* Sources */,
-				860BDFCC245B1062004059AC /* Frameworks */,
-				860BDFCD245B1062004059AC /* Resources */,
+				8615863A249938120005DCDA /* Sources */,
+				8615863B249938120005DCDA /* Frameworks */,
+				8615863C249938120005DCDA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				860BDFD1245B1062004059AC /* PBXTargetDependency */,
+				86158640249938120005DCDA /* PBXTargetDependency */,
 			);
 			name = JDCraftyCompanionTests;
-			productName = "JD's Crafty CompanionTests";
-			productReference = 860BDFCF245B1062004059AC /* JDCraftyCompanionTests.xctest */;
+			productName = JDCraftyCompanionTests;
+			productReference = 8615863E249938120005DCDA /* JDCraftyCompanionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		860BDFD9245B1062004059AC /* JDCraftyCompanionUITests */ = {
+		86158648249938120005DCDA /* JDCraftyCompanionUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 860BDFE9245B1062004059AC /* Build configuration list for PBXNativeTarget "JDCraftyCompanionUITests" */;
+			buildConfigurationList = 86158658249938120005DCDA /* Build configuration list for PBXNativeTarget "JDCraftyCompanionUITests" */;
 			buildPhases = (
-				860BDFD6245B1062004059AC /* Sources */,
-				860BDFD7245B1062004059AC /* Frameworks */,
-				860BDFD8245B1062004059AC /* Resources */,
+				86158645249938120005DCDA /* Sources */,
+				86158646249938120005DCDA /* Frameworks */,
+				86158647249938120005DCDA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				860BDFDC245B1062004059AC /* PBXTargetDependency */,
+				8615864B249938120005DCDA /* PBXTargetDependency */,
 			);
 			name = JDCraftyCompanionUITests;
-			productName = "JD's Crafty CompanionUITests";
-			productReference = 860BDFDA245B1062004059AC /* JDCraftyCompanionUITests.xctest */;
+			productName = JDCraftyCompanionUITests;
+			productReference = 86158649249938120005DCDA /* JDCraftyCompanionUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		860BDFB1245B105D004059AC /* Project object */ = {
+		8615861E2499380F0005DCDA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Justin DiStaulo";
 				TargetAttributes = {
-					860BDFB8245B105D004059AC = {
-						CreatedOnToolsVersion = 11.3.1;
+					861586252499380F0005DCDA = {
+						CreatedOnToolsVersion = 11.5;
 					};
-					860BDFCE245B1062004059AC = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 860BDFB8245B105D004059AC;
+					8615863D249938120005DCDA = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 861586252499380F0005DCDA;
 					};
-					860BDFD9245B1062004059AC = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 860BDFB8245B105D004059AC;
+					86158648249938120005DCDA = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 861586252499380F0005DCDA;
 					};
 				};
 			};
-			buildConfigurationList = 860BDFB4245B105D004059AC /* Build configuration list for PBXProject "JDCraftyCompanion" */;
+			buildConfigurationList = 861586212499380F0005DCDA /* Build configuration list for PBXProject "JDCraftyCompanion" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -343,44 +326,43 @@
 				en,
 				Base,
 			);
-			mainGroup = 860BDFB0245B105D004059AC;
+			mainGroup = 8615861D2499380F0005DCDA;
 			packageReferences = (
-				86966BF42464BBE4003DAEDD /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				86C48DE024996E8E004943DE /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
-			productRefGroup = 860BDFBA245B105D004059AC /* Products */;
+			productRefGroup = 861586272499380F0005DCDA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				860BDFB8245B105D004059AC /* JDCraftyCompanion */,
-				860BDFCE245B1062004059AC /* JDCraftyCompanionTests */,
-				860BDFD9245B1062004059AC /* JDCraftyCompanionUITests */,
+				861586252499380F0005DCDA /* JDCraftyCompanion */,
+				8615863D249938120005DCDA /* JDCraftyCompanionTests */,
+				86158648249938120005DCDA /* JDCraftyCompanionUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		860BDFB7245B105D004059AC /* Resources */ = {
+		861586242499380F0005DCDA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86966C012464CB0B003DAEDD /* bluetooth.json in Resources */,
-				86966C022464CB0B003DAEDD /* hamster_basic.json in Resources */,
-				860BDFC6245B1062004059AC /* Preview Assets.xcassets in Resources */,
-				86966C032464CB0B003DAEDD /* hamster.json in Resources */,
-				860BDFC3245B1062004059AC /* Assets.xcassets in Resources */,
-				86966C042464CB0B003DAEDD /* hypnotoad.json in Resources */,
-				862A87AA2481804C00475C52 /* LaunchScreen.storyboard in Resources */,
+				8615867524993DBE0005DCDA /* hypnotoad.json in Resources */,
+				8615867024993DBE0005DCDA /* LaunchScreen.storyboard in Resources */,
+				8615867324993DBE0005DCDA /* bluetooth.json in Resources */,
+				8615867224993DBE0005DCDA /* hamster.json in Resources */,
+				8615867124993DBE0005DCDA /* Assets.xcassets in Resources */,
+				8615867424993DBE0005DCDA /* hamster_basic.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		860BDFCD245B1062004059AC /* Resources */ = {
+		8615863C249938120005DCDA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		860BDFD8245B1062004059AC /* Resources */ = {
+		86158647249938120005DCDA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -390,62 +372,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		860BDFB5245B105D004059AC /* Sources */ = {
+		861586222499380F0005DCDA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				869DF8F42482BE8800569CCA /* DeviceStatusView.swift in Sources */,
-				860BDFBD245B105D004059AC /* AppDelegate.swift in Sources */,
-				860BDFBF245B105D004059AC /* SceneDelegate.swift in Sources */,
-				86CEFA2A24784F21001136CA /* BluetoothConnection.swift in Sources */,
-				860BDFC1245B105D004059AC /* MainView.swift in Sources */,
-				8609662D246C86B2003F89B5 /* LottieView.swift in Sources */,
-				8660D0FB247DC40500AA27AE /* DeviceInfoView.swift in Sources */,
-				8660D0F9247DC34900AA27AE /* TemperatureView.swift in Sources */,
-				862A87A624816DAE00475C52 /* LaunchView.swift in Sources */,
-				865C4B542464CD4D00D2A997 /* MainViewModel.swift in Sources */,
-				8671063D2478502C00A27DEF /* DeviceListView.swift in Sources */,
-				860FBD7D24818F94005570E6 /* Color+Custom.swift in Sources */,
-				8660D0FD247DC47C00AA27AE /* SettingsView.swift in Sources */,
-				86DE0C78245B66FA0049B47B /* BluetoothService.swift in Sources */,
-				860FBD7F24818FD5005570E6 /* Array+Custom.swift in Sources */,
-				86CEFA2824784B87001136CA /* Device.swift in Sources */,
+				8615867824993DBE0005DCDA /* UIColor+Custom.swift in Sources */,
+				86158630249938100005DCDA /* SettingsViewController.swift in Sources */,
+				8615862E249938100005DCDA /* TemperatureViewController.swift in Sources */,
+				8615862A2499380F0005DCDA /* AppDelegate.swift in Sources */,
+				86C48DDF24996630004943DE /* DeviceSelectionViewController.swift in Sources */,
+				86C48DDA2499465C004943DE /* TabBarViewController.swift in Sources */,
+				8615866F24993DBE0005DCDA /* BluetoothConnection.swift in Sources */,
+				8615866E24993DBE0005DCDA /* Device.swift in Sources */,
+				8615866D24993DBE0005DCDA /* BluetoothService.swift in Sources */,
+				86C48DE424997605004943DE /* DeviceSelectionView.swift in Sources */,
+				86C48DDC249948DE004943DE /* SceneDelegate.swift in Sources */,
+				86C48DD824994146004943DE /* DeviceInfoViewController.swift in Sources */,
+				8615867724993DBE0005DCDA /* Array+Custom.swift in Sources */,
+				8615867624993DBE0005DCDA /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		860BDFCB245B1062004059AC /* Sources */ = {
+		8615863A249938120005DCDA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				860BDFD4245B1062004059AC /* JDCraftyCompanionTests.swift in Sources */,
+				86158643249938120005DCDA /* JDCraftyCompanionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		860BDFD6245B1062004059AC /* Sources */ = {
+		86158645249938120005DCDA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				860BDFDF245B1062004059AC /* JDsCraftyCompanionUITests.swift in Sources */,
+				8615864E249938120005DCDA /* JDCraftyCompanionUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		860BDFD1245B1062004059AC /* PBXTargetDependency */ = {
+		86158640249938120005DCDA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 860BDFB8245B105D004059AC /* JDCraftyCompanion */;
-			targetProxy = 860BDFD0245B1062004059AC /* PBXContainerItemProxy */;
+			target = 861586252499380F0005DCDA /* JDCraftyCompanion */;
+			targetProxy = 8615863F249938120005DCDA /* PBXContainerItemProxy */;
 		};
-		860BDFDC245B1062004059AC /* PBXTargetDependency */ = {
+		8615864B249938120005DCDA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 860BDFB8245B105D004059AC /* JDCraftyCompanion */;
-			targetProxy = 860BDFDB245B1062004059AC /* PBXContainerItemProxy */;
+			target = 861586252499380F0005DCDA /* JDCraftyCompanion */;
+			targetProxy = 8615864A249938120005DCDA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		860BDFE1245B1062004059AC /* Debug */ = {
+		86158650249938120005DCDA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -495,7 +475,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -505,7 +485,7 @@
 			};
 			name = Debug;
 		};
-		860BDFE2245B1062004059AC /* Release */ = {
+		86158651249938120005DCDA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -549,7 +529,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -559,61 +539,50 @@
 			};
 			name = Release;
 		};
-		860BDFE4245B1062004059AC /* Debug */ = {
+		86158653249938120005DCDA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"JDCraftyCompanion/Preview Content\"";
 				DEVELOPMENT_TEAM = DNUV9DH7V4;
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JDCraftyCompanion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = justin.distaulo.JDCraftyCompanion;
-				PRODUCT_NAME = "JD's Crafty";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		860BDFE5245B1062004059AC /* Release */ = {
+		86158654249938120005DCDA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"JDCraftyCompanion/Preview Content\"";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DNUV9DH7V4;
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JDCraftyCompanion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = justin.distaulo.JDCraftyCompanion;
-				PRODUCT_NAME = "JD's Crafty";
-				PROVISIONING_PROFILE_SPECIFIER = "JD's Crafty Companion - Ad Hoc Distribution";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		860BDFE7245B1062004059AC /* Debug */ = {
+		86158656249938120005DCDA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNUV9DH7V4;
 				INFOPLIST_FILE = JDCraftyCompanionTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,15 +596,14 @@
 			};
 			name = Debug;
 		};
-		860BDFE8245B1062004059AC /* Release */ = {
+		86158657249938120005DCDA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNUV9DH7V4;
 				INFOPLIST_FILE = JDCraftyCompanionTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -649,12 +617,11 @@
 			};
 			name = Release;
 		};
-		860BDFEA245B1062004059AC /* Debug */ = {
+		86158659249938120005DCDA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNUV9DH7V4;
 				INFOPLIST_FILE = JDCraftyCompanionUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -669,12 +636,11 @@
 			};
 			name = Debug;
 		};
-		860BDFEB245B1062004059AC /* Release */ = {
+		8615865A249938120005DCDA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DNUV9DH7V4;
 				INFOPLIST_FILE = JDCraftyCompanionUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -692,38 +658,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		860BDFB4245B105D004059AC /* Build configuration list for PBXProject "JDCraftyCompanion" */ = {
+		861586212499380F0005DCDA /* Build configuration list for PBXProject "JDCraftyCompanion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				860BDFE1245B1062004059AC /* Debug */,
-				860BDFE2245B1062004059AC /* Release */,
+				86158650249938120005DCDA /* Debug */,
+				86158651249938120005DCDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		860BDFE3245B1062004059AC /* Build configuration list for PBXNativeTarget "JDCraftyCompanion" */ = {
+		86158652249938120005DCDA /* Build configuration list for PBXNativeTarget "JDCraftyCompanion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				860BDFE4245B1062004059AC /* Debug */,
-				860BDFE5245B1062004059AC /* Release */,
+				86158653249938120005DCDA /* Debug */,
+				86158654249938120005DCDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		860BDFE6245B1062004059AC /* Build configuration list for PBXNativeTarget "JDCraftyCompanionTests" */ = {
+		86158655249938120005DCDA /* Build configuration list for PBXNativeTarget "JDCraftyCompanionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				860BDFE7245B1062004059AC /* Debug */,
-				860BDFE8245B1062004059AC /* Release */,
+				86158656249938120005DCDA /* Debug */,
+				86158657249938120005DCDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		860BDFE9245B1062004059AC /* Build configuration list for PBXNativeTarget "JDCraftyCompanionUITests" */ = {
+		86158658249938120005DCDA /* Build configuration list for PBXNativeTarget "JDCraftyCompanionUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				860BDFEA245B1062004059AC /* Debug */,
-				860BDFEB245B1062004059AC /* Release */,
+				86158659249938120005DCDA /* Debug */,
+				8615865A249938120005DCDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -731,7 +697,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		86966BF42464BBE4003DAEDD /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+		86C48DE024996E8E004943DE /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
@@ -742,12 +708,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		86966BF52464BBE4003DAEDD /* Lottie */ = {
+		86C48DE124996E8E004943DE /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 86966BF42464BBE4003DAEDD /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			package = 86C48DE024996E8E004943DE /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 860BDFB1245B105D004059AC /* Project object */;
+	rootObject = 8615861E2499380F0005DCDA /* Project object */;
 }

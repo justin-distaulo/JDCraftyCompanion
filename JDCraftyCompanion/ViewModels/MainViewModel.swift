@@ -7,7 +7,6 @@
 //
 
 import Combine
-import SwiftUI
 import CoreBluetooth
 
 class MainViewModel: ObservableObject {

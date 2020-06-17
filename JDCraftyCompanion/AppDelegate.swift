@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  JD's Crafty Companion
+//  JDCraftyCompanion
 //
-//  Created by Justin DiStaulo on 2020-04-30.
+//  Created by Justin DiStaulo on 2020-06-16.
 //  Copyright © 2020 Justin DiStaulo. All rights reserved.
 //
 
@@ -30,4 +30,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 }
-
