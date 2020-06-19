@@ -23,7 +23,8 @@ class TabBarViewController: UITabBarController {
         let settingsVC = UINavigationController(rootViewController: SettingsViewController())
         settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
         
-        let deviceInfoVC = UINavigationController(rootViewController: DeviceInfoViewController())
+        let deviceInfoVC = DeviceInfoViewController()
+        deviceInfoVC.mainViewModel = mainViewModel
         deviceInfoVC.tabBarItem = UITabBarItem(title: "Information", image: UIImage(systemName: "info.circle"), tag: 2)
         
         viewControllers = [tempVC, settingsVC, deviceInfoVC]

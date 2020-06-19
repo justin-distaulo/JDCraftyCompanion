@@ -7,7 +7,6 @@
 //
 
 import Combine
-import SwiftUI
 import CoreBluetooth
 
 class Device: ObservableObject {
@@ -160,6 +159,35 @@ extension Device {
                 return \.remainChargeCapacity
             case .originalChargeCapacity:
                 return \.originalChargeCapacity
+            }
+        }
+        
+        var name: String {
+            switch self {
+            case .model:
+                return "Model"
+            case .firmware:
+                return "Firmware"
+            case .serialNumber:
+                return "Serial Number"
+            case .currentTemperature:
+                return "Current Temperature"
+            case .targetTemperature:
+                return "Target Temperature"
+            case .boosterAmount:
+                return "Booster Amount"
+            case .ledBrightness:
+                return "LED Brightness"
+            case .powerOnTime:
+                return "Power On Time"
+            case .chargeCycles:
+                return "Charge Cycles"
+            case .fullChargeCapacity:
+                return "Charge Capacity"
+            case .remainChargeCapacity:
+                return "Remaining Charge Capacity"
+            case .originalChargeCapacity:
+                return "Original Charge Capacity"
             }
         }
     }

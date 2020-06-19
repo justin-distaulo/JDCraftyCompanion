@@ -29,7 +29,7 @@ class BluetoothService: NSObject {
     
     func startScanning() {
         shouldScan = true
-        if self.manager.state == .poweredOn {
+        if manager.state == .poweredOn {
             scan()
         }
     }

@@ -24,6 +24,7 @@
 		8615867624993DBE0005DCDA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615866924993DBE0005DCDA /* MainViewModel.swift */; };
 		8615867724993DBE0005DCDA /* Array+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615866B24993DBE0005DCDA /* Array+Custom.swift */; };
 		8615867824993DBE0005DCDA /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8615866C24993DBE0005DCDA /* UIColor+Custom.swift */; };
+		8694341C249A542F00916D08 /* DeviceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8694341B249A542F00916D08 /* DeviceInfoCell.swift */; };
 		86C48DD824994146004943DE /* DeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C48DD724994146004943DE /* DeviceInfoViewController.swift */; };
 		86C48DDA2499465C004943DE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C48DD92499465C004943DE /* TabBarViewController.swift */; };
 		86C48DDC249948DE004943DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C48DDB249948DE004943DE /* SceneDelegate.swift */; };
@@ -73,6 +74,7 @@
 		8615866924993DBE0005DCDA /* MainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		8615866B24993DBE0005DCDA /* Array+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Custom.swift"; sourceTree = "<group>"; };
 		8615866C24993DBE0005DCDA /* UIColor+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		8694341B249A542F00916D08 /* DeviceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoCell.swift; sourceTree = "<group>"; };
 		86C48DD724994146004943DE /* DeviceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoViewController.swift; sourceTree = "<group>"; };
 		86C48DD92499465C004943DE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		86C48DDB249948DE004943DE /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,10 +230,19 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		8694341D249A543700916D08 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8694341B249A542F00916D08 /* DeviceInfoCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		86C48DE524997617004943DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				86C48DE324997605004943DE /* DeviceSelectionView.swift */,
+				8694341D249A543700916D08 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,6 +394,7 @@
 				86C48DDF24996630004943DE /* DeviceSelectionViewController.swift in Sources */,
 				86C48DDA2499465C004943DE /* TabBarViewController.swift in Sources */,
 				8615866F24993DBE0005DCDA /* BluetoothConnection.swift in Sources */,
+				8694341C249A542F00916D08 /* DeviceInfoCell.swift in Sources */,
 				8615866E24993DBE0005DCDA /* Device.swift in Sources */,
 				8615866D24993DBE0005DCDA /* BluetoothService.swift in Sources */,
 				86C48DE424997605004943DE /* DeviceSelectionView.swift in Sources */,
