@@ -19,6 +19,7 @@ struct LaunchView: View {
                     .foregroundColor(Color.jdText)
                     .font(.largeTitle)
                     .fontWeight(.black)
+                    .multilineTextAlignment(.center)
                 Spacer()
                     .frame(maxHeight: 32)
                 LottieView(name: "hamster")
